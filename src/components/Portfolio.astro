@@ -1,0 +1,130 @@
+---
+// src/components/Portfolio.astro
+const base = '/miranda-tech';
+
+const portfolioItems = [
+  {
+    id: "portfolioModal1",
+    title: "Plataforma AgriTech",
+    subtitle: "Agronegócio & Exportação",
+    category: "Astro, Tailwind & SEO Local",
+    client: "AgroCerrado Group",
+    image: `${base}/assets/img/portfolio/1.jpg`,
+    description: "Desenvolvimento de plataforma digital de alta performance para exportação de commodities agrícolas. Integrado com cotações em tempo real e otimização SEO que garantiu o topo das buscas para grandes players industriais."
+  },
+  {
+    id: "portfolioModal2",
+    title: "Vilela Boutique",
+    subtitle: "E-commerce de Moda Premium",
+    category: "Lojas Virtuais & Automação",
+    client: "Grupo Vilela de Moda",
+    image: `${base}/assets/img/portfolio/2.jpg`,
+    description: "Criação de e-commerce de moda elegante e sofisticado. Checkout transparente de alta conversão, sistema de controle de estoque automatizado e integração direta com canais de tráfego pago, multiplicando as vendas semanais."
+  },
+  {
+    id: "portfolioModal3",
+    title: "Miranda & Associados",
+    subtitle: "Portal de Advocacia Corporativa",
+    category: "Branding, Web & Otimização",
+    client: "Advocacia Miranda",
+    image: `${base}/assets/img/portfolio/3.jpg`,
+    description: "Desenvolvimento de portal jurídico robusto de alta conversão. Estrutura desenhada cientificamente para atrair clientes corporativos de alto ticket, integrada com funis de captação e WhatsApp comercial."
+  },
+  {
+    id: "portfolioModal4",
+    title: "Clinica Sorriso",
+    subtitle: "Portal para Clínicas Médicas",
+    category: "Landing Pages & Agendamento",
+    client: "Clínicas Sorriso",
+    image: `${base}/assets/img/portfolio/4.jpg`,
+    description: "Criação de funil completo de agendamento online e landing page ultraveloz para clínica odontológica regional. Reduziu o custo por lead em 45% e estruturou um fluxo automatizado de agendamentos pelo celular."
+  },
+  {
+    id: "portfolioModal5",
+    title: "Metalúrgica MetalMais",
+    subtitle: "Portal de Indústria B2B",
+    category: "Portais Corporativos & IA",
+    client: "MetalMais Industrial",
+    image: `${base}/assets/img/portfolio/5.jpg`,
+    description: "Transformação da presença digital de indústria metalmecânica. Criação de catálogo estático indexável de peças industriais de grande porte com sistema inteligente de pedidos integrados ao CRM."
+  },
+  {
+    id: "portfolioModal6",
+    title: "AutoGiro Catálogo",
+    subtitle: "Catálogo de Veículos Estático",
+    category: "Automações Web & CMS",
+    client: "AutoGiro Veículos",
+    image: `${base}/assets/img/portfolio/6.jpg`,
+    description: "Desenvolvimento de portal de inventário estático inovador para concessionárias de veículos. Sistema com carregamento de frações de segundos, aumentando a captação de simulações de financiamento."
+  }
+];
+---
+
+<!-- Portfolio Grid-->
+<section class="page-section bg-light" id="portfolio">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase" style="font-weight: 700;">Nosso Portfólio</h2>
+      <h3 class="section-subheading text-muted" style="font-style: italic; margin-bottom: 4rem;">Projetos de alta performance desenvolvidos com excelência técnica e foco em resultados de negócio.</h3>
+    </div>
+    <div class="row">
+      {portfolioItems.map((item) => (
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <!-- Portfolio item -->
+          <div class="portfolio-item">
+            <a class="portfolio-link" data-bs-toggle="modal" href={`#${item.id}`}>
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+              </div>
+              <img class="img-fluid" src={item.image} alt={item.title} style="width: 100%; height: 250px; object-fit: cover;" />
+            </a>
+            <div class="portfolio-caption" style="padding: 1.5rem; background-color: #fff; text-align: center;">
+              <div class="portfolio-caption-heading" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem; color: #212529;">{item.title}</div>
+              <div class="portfolio-caption-subheading text-muted" style="font-style: italic; font-size: 0.9rem;">{item.subtitle}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Modals-->
+{portfolioItems.map((item) => (
+  <div class="portfolio-modal modal fade" id={item.id} tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="padding: 3rem 0; border-radius: 8px;">
+        <div class="close-modal" data-bs-dismiss="modal" style="cursor: pointer; position: absolute; right: 2rem; top: 2rem;">
+          <img src={`${base}/assets/img/close-icon.svg`} alt="Close modal" style="width: 2rem; height: 2rem;" />
+        </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="modal-body" style="text-align: center;">
+                <!-- Project details-->
+                <h2 class="text-uppercase" style="font-weight: 700; margin-bottom: 0.5rem; color: #212529;">{item.title}</h2>
+                <p class="item-intro text-muted" style="font-style: italic; font-size: 1.1rem; margin-bottom: 2rem;">{item.subtitle}</p>
+                <img class="img-fluid d-block mx-auto" src={item.image} alt={item.title} style="border-radius: 6px; margin-bottom: 2rem; max-height: 400px; width: 100%; object-fit: cover;" />
+                <p style="font-size: 1.05rem; line-height: 1.7rem; color: #6c757d; margin-bottom: 2rem; text-align: justify;">{item.description}</p>
+                <ul class="list-inline" style="margin-bottom: 2.5rem;">
+                  <li style="margin-bottom: 0.5rem;">
+                    <strong style="color: #212529;">Cliente:</strong>
+                    {item.client}
+                  </li>
+                  <li>
+                    <strong style="color: #212529;">Categoria/Stack:</strong>
+                    {item.category}
+                  </li>
+                </ul>
+                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button" style="border-radius: 5px; font-weight: 700;">
+                  <i class="fas fa-times me-1"></i>
+                  Fechar Case
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+))}

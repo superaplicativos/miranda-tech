@@ -1,0 +1,49 @@
+---
+// src/pages/portfolio.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const pageTitle = "Nossos Cases e Projetos Corporativos | Miranda Tech";
+const pageDescription = "Cases de sucesso, plataformas corporativas e soluções de alto faturamento entregues por Guilherme Miranda.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Header />
+  
+  <Hero 
+    subheading="CASES & RESULTADOS REAIS" 
+    heading="ENGENHARIA WEB QUE GERA FATURAMENTO COMERCIAL"
+    ctaText="FALAR CONOSCO"
+    ctaLink="#contact"
+  />
+
+  <section class="page-section" style="padding: 8rem 0; background-color: #f8f9fa;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <div class="p-5 bg-white shadow-sm border border-1 rounded" style="border-radius: 8px;">
+            <span class="fa-stack fa-3x text-primary mb-4" style="color: #ffc800 !important;">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fas fa-briefcase fa-stack-1x fa-inverse"></i>
+            </span>
+            <h2 class="fw-bold mb-3" style="color: #212529;">Nossos Cases de Sucesso</h2>
+            <p class="lead text-muted mb-4" style="font-style: italic;">
+              "Cases e projetos serão adicionados em breve."
+            </p>
+            <p class="text-secondary mb-0" style="font-size: 0.95rem; max-width: 500px; margin: 0 auto; line-height: 1.5rem;">
+              Estamos catalogando e formatando mais de 1.200 aplicativos, e-commerces e websites vendidos ao longo de 26 anos de história de TI. Volte em breve para ver as análises completas!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Contact />
+  <Footer />
+  <WhatsAppButton />
+</Layout>

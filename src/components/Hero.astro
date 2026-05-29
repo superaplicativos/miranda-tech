@@ -1,0 +1,30 @@
+---
+// src/components/Hero.astro
+interface Props {
+  subheading?: string;
+  heading?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const { 
+  subheading = "26 ANOS DE EXPERIÊNCIA DE MERCADO", 
+  heading = "SOLUÇÕES DIGITAIS CORPORATIVAS & PERFORMANCE EXTREMA", 
+  ctaText = "SIMULAR PROJETO", 
+  ctaLink = "#calculadoras" 
+} = Astro.props;
+---
+
+<header class="masthead">
+  <div class="container">
+    <div class="masthead-subheading text-uppercase" style="font-weight: 700; letter-spacing: 2px; color: #ffc800;">
+      {subheading}
+    </div>
+    <div class="masthead-heading text-uppercase" style="font-size: 3.25rem; font-weight: 700; line-height: 4rem; margin-bottom: 2rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
+      {heading}
+    </div>
+    <a class="btn btn-primary btn-xl text-uppercase" href={ctaLink} style="font-weight: 700; padding: 1.25rem 2.5rem; font-size: 1.1rem; border-radius: 5px; box-shadow: 0 4px 15px rgba(255, 200, 0, 0.4);">
+      {ctaText}
+    </a>
+  </div>
+</header>

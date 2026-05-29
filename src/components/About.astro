@@ -1,0 +1,87 @@
+---
+// src/components/About.astro
+const base = '/miranda-tech';
+---
+
+<section class="page-section" id="about">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase" style="font-weight: 700;">Nossa História</h2>
+      <h3 class="section-subheading text-muted" style="font-style: italic; margin-bottom: 4rem;">A trajetória de liderança e inovação liderada por Guilherme Miranda, especialista em soluções digitais.</h3>
+    </div>
+    
+    <ul class="timeline">
+      <li>
+        <div class="timeline-image"><img class="rounded-circle img-fluid" src={`${base}/assets/img/about/1.jpg`} alt="Fundação Técnica" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 style="color: #ffc800; font-weight: 700;">2000 - 2006</h4>
+            <h4 class="subheading" style="font-weight: 700; color: #212529;">Fundação Técnica & Primeiros Softwares</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted" style="font-size: 0.95rem; line-height: 1.55rem;">
+              Guilherme Miranda inicia sua trajetória técnica construindo as primeiras aplicações em linguagens de baixo nível e arquitetando bancos de dados de alta performance. Uma sólida base em engenharia de software desenhada desde a adolescência.
+            </p>
+          </div>
+        </div>
+      </li>
+      
+      <li class="timeline-inverted">
+        <div class="timeline-image"><img class="rounded-circle img-fluid" src={`${base}/assets/img/about/2.jpg`} alt="Consolidação de Projetos" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 style="color: #ffc800; font-weight: 700;">2006 - 2013</h4>
+            <h4 class="subheading" style="font-weight: 700; color: #212529;">Consolidação e 500+ Sistemas Vendidos</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted" style="font-size: 0.95rem; line-height: 1.55rem;">
+              Atuação direta na liderança e entrega de projetos complexos de software corporativo e sites institucionais para médias e grandes corporações brasileiras. Consolidação da reputação comercial e técnica.
+            </p>
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="timeline-image"><img class="rounded-circle img-fluid" src={`${base}/assets/img/about/3.jpg`} alt="Expansão Multinacional" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 style="color: #ffc800; font-weight: 700;">2013 - 2020</h4>
+            <h4 class="subheading" style="font-weight: 700; color: #212529;">Projetos Corporativos & Alta Escala</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted" style="font-size: 0.95rem; line-height: 1.55rem;">
+              Consultoria estratégica e arquitetura de sistemas de altíssima escala para grandes multinacionais. Engenharia de crescimento direcionada a SEO técnico agressivo, sitemaps inteligentes e automação mercantil.
+            </p>
+          </div>
+        </div>
+      </li>
+      
+      <li class="timeline-inverted">
+        <div class="timeline-image"><img class="rounded-circle img-fluid" src={`${base}/assets/img/about/4.jpg`} alt="Consolidação Miranda Tech" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 style="color: #ffc800; font-weight: 700;">2020 - 2026</h4>
+            <h4 class="subheading" style="font-weight: 700; color: #212529;">Fundação da Miranda Tech & 1200+ Projetos</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted" style="font-size: 0.95rem; line-height: 1.55rem;">
+              Nascimento da Miranda Tech como boutique premium de software. Ultrapassou a marca histórica de **1.200 sites e aplicações ativas**, integrando performance estática de nível internacional e IA empresarial para escala real.
+            </p>
+          </div>
+        </div>
+      </li>
+      
+      <li class="timeline-inverted">
+        <div class="timeline-image" style="background-color: #ffc800; border: 7px solid #e9ecef; cursor: pointer;" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">
+          <h4 style="color: #fff; font-size: 0.9rem; font-weight: 700; line-height: 1.2rem; padding-top: 1rem;">
+            Faça Parte
+            <br />
+            Desta
+            <br />
+            História!
+          </h4>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+---
+// src/pages/servicos.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import BudgetCalculator from '../components/BudgetCalculator.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const pageTitle = "Nossos Serviços Tecnológicos Corporativos | Miranda Tech";
+const pageDescription = "Explore nossa lista de 11 soluções digitais de alto impacto. Desenvolvimento estático ultraveloz, e-commerce profissional, SEO avançado e IA para negócios.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Header />
+  
+  <Hero 
+    subheading="ENGENHARIA & PERFORMANCE" 
+    heading="SOLUÇÕES CORP. ESTRUTURADAS DE EXTREMA VELOCIDADE"
+    ctaText="IR PARA O SIMULADOR"
+    ctaLink="#calculadoras"
+  />
+
+  <!-- Grid de Serviços -->
+  <Services />
+
+  <!-- Simulador de Orçamentos -->
+  <BudgetCalculator />
+  
+  <Contact />
+  <Footer />
+  <WhatsAppButton />
+</Layout>

@@ -1,0 +1,77 @@
+---
+// src/components/WhatsAppButton.astro
+interface Props {
+  phone?: string;
+  message?: string;
+}
+
+const { 
+  phone = "+5516999999999", 
+  message = "Olá Guilherme Miranda, acessei o site oficial da Miranda Tech e gostaria de solicitar um orçamento para o meu negócio." 
+} = Astro.props;
+
+const encodedMessage = encodeURIComponent(message);
+const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone.replace('+', '')}&text=${encodedMessage}`;
+---
+
+<a 
+  href={whatsappUrl} 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="whatsapp-btn-float"
+  aria-label="Falar no WhatsApp"
+>
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<style>
+  .whatsapp-btn-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 34px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s, background-color 0.3s;
+    animation: pulseWhatsApp 2s infinite;
+  }
+
+  .whatsapp-btn-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+    color: #fff;
+  }
+
+  @keyframes pulseWhatsApp {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+    }
+    70% {
+      box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+  }
+
+  /* Ocultar em telas muito pequenas se necessário, ou manter para conversão extrema */
+  @media (max-width: 576px) {
+    .whatsapp-btn-float {
+      width: 50px;
+      height: 50px;
+      bottom: 20px;
+      right: 20px;
+      font-size: 28px;
+    }
+  }
+</style>

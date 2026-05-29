@@ -1,0 +1,68 @@
+---
+// src/pages/blog/index.astro
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+
+// Buscando todos os posts locais em Markdown
+const posts = await Astro.glob('./posts/*.md');
+
+// Ordenando os posts (opcional)
+const sortedPosts = posts.sort((a, b) => {
+  return new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime();
+});
+
+const pageTitle = "Blog de SEO e Tecnologia Digital | Miranda Tech";
+const pageDescription = "Aprenda com quem tem 26 anos de experiência. Artigos técnicos sobre SEO Local, Landing Pages de alta conversão, e-commerce e performance web.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Cabeçalho -->
+  <Header />
+
+  <!-- Hero principal do Blog -->
+  <Hero 
+    subheading="INSIGHTS DE TECNOLOGIA & MARKETING" 
+    heading="ARTIGOS TÉCNICOS PARA ACELERAÇÃO DE NEGÓCIOS"
+    ctaText="FALAR CONOSCO"
+    ctaLink="#contact"
+  />
+
+  <!-- Grade de Artigos -->
+  <section class="page-section bg-light" style="padding: 5rem 0;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-heading text-uppercase" style="font-weight: 700;">Nosso Conteúdo</h2>
+        <h3 class="section-subheading text-muted" style="font-style: italic;">Artigos práticos para destacar sua marca e multiplicar suas conversões no WhatsApp.</h3>
+      </div>
+      
+      <div class="row">
+        {sortedPosts.map((post) => (
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm" style="border-radius: 8px; overflow: hidden; background: #fff; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+              <img src={post.frontmatter.image} class="card-img-top" alt={post.frontmatter.title} style="height: 200px; object-fit: cover;" />
+              <div class="card-body d-flex flex-column p-4">
+                <span class="text-primary text-uppercase fw-bold mb-2" style="font-size: 0.75rem; color: #ffc800 !important; letter-spacing: 0.5px;">{post.frontmatter.date}</span>
+                <h5 class="card-title fw-bold" style="font-size: 1.15rem; line-height: 1.5rem; color: #212529;">{post.frontmatter.title}</h5>
+                <p class="card-text text-muted" style="font-size: 0.9rem; line-height: 1.4rem; text-align: justify; flex-grow: 1; margin-bottom: 1.5rem;">
+                  {post.frontmatter.description}
+                </p>
+                <a href={post.url} class="btn btn-primary fw-bold text-uppercase w-100" style="border-radius: 4px; padding: 0.6rem 1rem; font-size: 0.8rem;">
+                  Ler Artigo Completo
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Captura e WhatsApp -->
+  <Contact />
+  <Footer />
+  <WhatsAppButton />
+</Layout>

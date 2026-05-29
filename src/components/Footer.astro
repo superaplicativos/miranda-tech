@@ -1,0 +1,44 @@
+---
+// src/components/Footer.astro
+const base = '/miranda-tech';
+---
+
+<footer class="footer py-4 bg-light" style="border-top: 1px solid #dee2e6;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-4 text-lg-start" style="font-size: 0.9rem; color: #6c757d;">
+        Copyright &copy; Miranda Tech 2026 | Liderado por Guilherme Miranda
+      </div>
+      <div class="col-lg-4 my-3 my-lg-0 text-center">
+        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-github"></i></a>
+        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <div class="col-lg-4 text-lg-end" style="font-size: 0.9rem;">
+        <a class="link-dark text-decoration-none me-3" href="#!">Políticas de Privacidade</a>
+        <a class="link-dark text-decoration-none" href="#!">Termos de Uso</a>
+      </div>
+    </div>
+
+    <!-- Links internos agressivos no rodapé para impulsionar a indexação de cidades do SEO Programático -->
+    <div class="row mt-4 pt-4 border-top text-center" style="border-color: rgba(0,0,0,0.05) !important;">
+      <div class="col-12">
+        <h6 class="text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 1px; color: #495057;">Atendimento Regional de Criação de Sites</h6>
+        <div class="d-flex flex-wrap justify-content-center gap-2" style="font-size: 0.78rem; line-height: 1.5rem;">
+          <a href={`${base}/criacao-sites/ribeirao-preto/`} class="text-secondary text-decoration-none me-2">Ribeirão Preto</a>|
+          <a href={`${base}/criacao-sites/franca/`} class="text-secondary text-decoration-none me-2">Franca</a>|
+          <a href={`${base}/criacao-sites/mococa/`} class="text-secondary text-decoration-none me-2">Mococa</a>|
+          <a href={`${base}/criacao-sites/sertaozinho/`} class="text-secondary text-decoration-none me-2">Sertãozinho</a>|
+          <a href={`${base}/criacao-sites/batatais/`} class="text-secondary text-decoration-none me-2">Batatais</a>|
+          <a href={`${base}/criacao-sites/sao-carlos/`} class="text-secondary text-decoration-none me-2">São Carlos</a>|
+          <a href={`${base}/criacao-sites/araraquara/`} class="text-secondary text-decoration-none me-2">Araraquara</a>|
+          <a href={`${base}/criacao-sites/barretos/`} class="text-secondary text-decoration-none me-2">Barretos</a>|
+          <a href={`${base}/criacao-sites/campinas/`} class="text-secondary text-decoration-none me-2">Campinas</a>|
+          <a href={`${base}/criacao-sites/piracicaba/`} class="text-secondary text-decoration-none me-2">Piracicaba</a>|
+          <a href={`${base}/criacao-sites/sao-jose-do-rio-preto/`} class="text-secondary text-decoration-none me-2">São José do Rio Preto</a>|
+          <a href={`${base}/criacao-sites/jundiai/`} class="text-secondary text-decoration-none">Jundiaí</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

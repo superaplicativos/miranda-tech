@@ -1,0 +1,148 @@
+---
+// src/pages/[slug]/index.astro
+import { CITIES, COMBINATIONS, SERVICES, NICHOS } from '../../data/seo-data';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import BudgetCalculator from '../../components/BudgetCalculator.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+
+export function getStaticPaths() {
+  return COMBINATIONS.map(combo => ({
+    params: { slug: combo.slug },
+    props: { combo }
+  }));
+}
+
+const { combo } = Astro.props;
+const base = '/miranda-tech';
+
+const srv = SERVICES[combo.serviceKey];
+const nich = combo.nicheKey ? NICHOS[combo.nicheKey] : undefined;
+
+// Títulos e descrições customizados para a página geral
+const pageTitle = nich 
+  ? `${combo.title} | Miranda Tech - Soluções Digitais Premium`
+  : `${srv.name} de Alta Performance | Miranda Tech`;
+
+const pageDescription = nich
+  ? `Desenvolvimento especializado de ${srv.name.toLowerCase()} ${nich.article} seu negócio de ${nich.name.toLowerCase()}. Soluções rápidas e otimizadas em SEO regional.`
+  : `${srv.description} Projetos de nível corporativo desenvolvidos por Guilherme Miranda (26 anos de TI).`;
+
+// Vantagens corporativas padrão
+const benefits = nich
+  ? [
+      `Design exclusivo e adaptado ao nicho de ${nich.name.toLowerCase()}`,
+      `Performance máxima sem dependência de WordPress (Astro & Tailwind)`,
+      `Arquitetura pronta para SEO Local e Google Maps`,
+      `Integração direta com WhatsApp e painéis de agendamento`,
+      `Experiência comprovada de 26 anos liderada por Guilherme Miranda`
+    ]
+  : [
+      `Código estático ultraveloz para nota máxima em Core Web Vitals`,
+      `Estrutura adaptada a anúncios no Google Ads e Facebook Ads`,
+      `Hospedagem corporativa estável em servidores VPS`,
+      `Integrações com CRMs e fluxos automáticos de vendas`,
+      `Assessoria comercial e suporte dedicado pós-entrega`
+    ];
+
+const ctaMessage = `Olá Guilherme Miranda, gostaria de um orçamento corporativo para ${combo.title}. Acessei a página de serviços e gostaria de tirar algumas dúvidas.`;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Navegação -->
+  <Header />
+
+  <!-- Hero Principal do Serviço -->
+  <Hero 
+    subheading="SOLUÇÕES CORPORATIVAS EXCLUSIVAS" 
+    heading={`${combo.title.toUpperCase()}`}
+    ctaText="SIMULAR PREÇO DO PROJETO"
+    ctaLink="#calculadoras"
+  />
+
+  <!-- Descrição do Serviço -->
+  <section class="page-section bg-light" id="details" style="padding: 5rem 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 pr-lg-5">
+          <h2 class="fw-bold mb-4" style="color: #212529; font-size: 2.2rem;">
+            {combo.title}
+          </h2>
+          <p class="lead text-muted mb-4" style="line-height: 1.8rem; font-size: 1.15rem; text-align: justify;">
+            Oferecemos uma abordagem científica no desenvolvimento de **{combo.title}**. Nossos projetos são meticulosamente estruturados utilizando frameworks estáticos de última geração, garantindo nota máxima de performance no Lighthouse, blindagem completa contra vírus de segurança e alta conversão de clientes.
+          </p>
+          <p class="text-secondary mb-4" style="line-height: 1.7rem; font-size: 1.05rem; text-align: justify;">
+            Com a consultoria estratégica de Guilherme Miranda, que traz uma bagagem sólida de 26 anos em TI e mais de 1.200 softwares entregues, estruturamos canais de aquisição orgânica preparados para dominar o Google de forma massiva. Aliamos a engenharia de software à ciência de conversão mercantil para entregar soluções que impulsionam o seu faturamento de forma real.
+          </p>
+          
+          <div class="p-3 bg-white border-start border-primary border-4 rounded shadow-sm mb-4" style="border-left: 5px solid #ffc800 !important;">
+            <p class="m-0 text-dark fw-bold" style="font-style: italic;">
+              "Diferente de agências amadoras que utilizam templates prontos e lentos do WordPress, nós entregamos código limpo e arquitetado sob medida para posicionar sua marca no topo."
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-5 mt-4 mt-lg-0">
+          <div class="p-4 rounded shadow-lg bg-dark text-white border-0" style="background-color: #212529 !important;">
+            <h4 class="text-primary text-uppercase fw-bold mb-3" style="font-size: 1.1rem; color: #ffc800 !important; letter-spacing: 1px;">Vantagens da Solução</h4>
+            <ul class="list-unstyled mb-4" style="font-size: 0.95rem;">
+              {benefits.map((benefit) => (
+                <li class="d-flex align-items-start mb-3">
+                  <i class="fas fa-check-circle text-primary me-2 mt-1" style="color: #ffc800 !important;"></i>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+            <hr style="background-color: rgba(255,255,255,0.1);">
+            <div class="d-grid gap-2">
+              <a href="#calculadoras" class="btn btn-primary fw-bold text-uppercase" style="border-radius: 4px; padding: 0.8rem 1.5rem;">
+                <i class="fas fa-calculator me-2"></i> Abrir Simulador de Preço
+              </a>
+              <a href="#contact" class="btn btn-outline-light fw-bold text-uppercase" style="border-radius: 4px; font-size: 0.85rem;">
+                Falar Conosco
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Simulador de Orçamentos -->
+  <BudgetCalculator />
+
+  <!-- DIRETÓRIO REGIONAL (HTML Sitemap para Indexação Massiva do SEO Programático) -->
+  <section class="page-section bg-white" id="directory" style="padding: 5rem 0; border-top: 1px solid #dee2e6;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-heading text-uppercase text-dark" style="font-weight: 700;">Diretório de Atendimento Local</h2>
+        <h3 class="section-subheading text-muted" style="font-style: italic;">Selecione sua cidade e veja as condições exclusivas de {combo.title.toLowerCase()} para sua região.</h3>
+      </div>
+      
+      <div class="row">
+        <!-- Dividindo as 60 cidades em 4 colunas balanceadas -->
+        {Array.from({ length: 4 }).map((_, colIndex) => (
+          <div class="col-md-3 col-6">
+            <ul class="list-unstyled" style="font-size: 0.92rem; line-height: 2rem;">
+              {CITIES.filter((_, idx) => idx % 4 === colIndex).map((city) => (
+                <li class="mb-2">
+                  <a href={`${base}/${combo.slug}/${city.slug}/`} class="text-secondary text-decoration-none hover-link" style="transition: color 0.2s;" onmouseover="this.style.color='#ffc800'" onmouseout="this.style.color='#6c757d'">
+                    <i class="fas fa-map-marker-alt text-primary me-2" style="font-size: 0.8rem;"></i> {city.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato e WhatsApp -->
+  <Contact />
+  <Footer />
+  <WhatsAppButton message={ctaMessage} />
+</Layout>

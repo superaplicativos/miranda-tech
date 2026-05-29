@@ -1,0 +1,69 @@
+---
+// src/components/Contact.astro
+const base = '/miranda-tech';
+const whatsAppPhone = "+5516999999999";
+---
+
+<section class="page-section" id="contact" style="background-image: url('/miranda-tech/assets/img/map-image.png'); background-repeat: no-repeat; background-position: center; background-color: #212529; padding: 6rem 0;">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase text-white" style="font-weight: 700;">Fale Conosco</h2>
+      <h3 class="section-subheading text-muted" style="font-style: italic; margin-bottom: 4rem; color: #a3a3a3 !important;">Entre em contato hoje mesmo e dê o próximo passo no crescimento do seu negócio.</h3>
+    </div>
+    
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <form id="leadContactForm">
+          <div class="row align-items-stretch mb-5">
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <input class="form-control py-3" id="cName" type="text" placeholder="Nome Completo *" required style="border-radius: 4px;" />
+              </div>
+              <div class="form-group mb-3">
+                <input class="form-control py-3" id="cEmail" type="email" placeholder="Seu E-mail Corporativo *" required style="border-radius: 4px;" />
+              </div>
+              <div class="form-group mb-md-0">
+                <input class="form-control py-3" id="cPhone" type="tel" placeholder="WhatsApp Comercial *" required style="border-radius: 4px;" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group form-group-textarea mb-md-0" style="height: 100%;">
+                <textarea class="form-control" id="cMessage" placeholder="Descreva brevemente a necessidade técnica da sua empresa *" required style="border-radius: 4px; height: 100%; min-height: 150px;"></textarea>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center">
+            <button class="btn btn-primary btn-xl text-uppercase fw-bold" id="btnSubmitContact" type="submit" style="padding: 1.25rem 2.5rem; font-size: 1.1rem; border-radius: 5px;">
+              <i class="fab fa-whatsapp me-2"></i> Enviar Mensagem via WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ whatsAppPhone }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('leadContactForm');
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('cName').value;
+        const email = document.getElementById('cEmail').value;
+        const phone = document.getElementById('cPhone').value;
+        const message = document.getElementById('cMessage').value;
+        
+        const ddiPhone = whatsAppPhone.replace('+', '');
+        
+        const formattedText = `Olá Guilherme Miranda,\nFiz um envio de contato pelo formulário oficial da Miranda Tech.\n\n*Dados Capturados:*\n- *Nome:* ${name}\n- *E-mail:* ${email}\n- *WhatsApp:* ${phone}\n- *Mensagem:* ${message}\n\nGostaria de obter uma avaliação gratuita do meu negócio!`;
+        
+        const encodedText = encodeURIComponent(formattedText);
+        window.open(`https://api.whatsapp.com/send?phone=${ddiPhone}&text=${encodedText}`, '_blank');
+      });
+    }
+  });
+</script>

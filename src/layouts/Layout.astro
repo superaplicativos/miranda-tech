@@ -1,0 +1,143 @@
+---
+// src/layouts/Layout.astro
+import '../styles/styles.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  faqSchema?: { question: string; answer: string }[];
+  localBusinessSchema?: {
+    cityName: string;
+    description: string;
+  };
+  breadcrumbSchema?: { name: string; item: string }[];
+}
+
+const { 
+  title, 
+  description, 
+  canonical, 
+  faqSchema, 
+  localBusinessSchema,
+  breadcrumbSchema 
+} = Astro.props;
+
+// Definição da URL absoluta para canonical tags
+const siteUrl = 'https://superaplicativos.github.io';
+const base = '/miranda-tech';
+const currentUrl = canonical || `${siteUrl}${base}${Astro.url.pathname}`;
+
+// Configuração do Schema de Negócio Local para Guilherme Miranda
+const defaultLocalBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Guilherme Miranda - Soluções Digitais",
+  "image": `${siteUrl}${base}/assets/img/header-bg.jpg`,
+  "@id": `${siteUrl}${base}/#page-top`,
+  "url": `${siteUrl}${base}/`,
+  "telephone": "+5516999999999",
+  "priceRange": "$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": localBusinessSchema?.cityName || "Ribeirão Preto",
+    "addressRegion": "SP",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "-21.1704",
+    "longitude": "-47.8103"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Estado de São Paulo"
+  },
+  "description": localBusinessSchema?.description || "Empresa premium liderada por Guilherme Miranda, especialista em TI com 26 anos de experiência. Desenvolvimento de sites ultravelozes, SEO programático e e-commerce de alta conversão.",
+  "sameAs": [
+    "https://github.com/superaplicativos/miranda-tech"
+  ]
+};
+
+// Configuração do Schema de FAQPage se houver FAQs
+const structuredFaqSchema = faqSchema ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqSchema.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+} : null;
+
+// Configuração do Schema de Breadcrumb
+const structuredBreadcrumbSchema = breadcrumbSchema ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbSchema.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": `${siteUrl}${base}${item.item}`
+  }))
+} : null;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="robots" content="index, follow" />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={currentUrl} />
+    
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href={`${base}/assets/favicon.ico`} />
+    
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}${base}/assets/img/header-bg.jpg`} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={currentUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={`${siteUrl}${base}/assets/img/header-bg.jpg`} />
+
+    <!-- Font Awesome icons (free version)-->
+    <script is:inline src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- Structured Data Schemas -->
+    <script type="application/ld+json" set:html={JSON.stringify(defaultLocalBusinessSchema)} />
+    {structuredFaqSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(structuredFaqSchema)} />
+    )}
+    {structuredBreadcrumbSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(structuredBreadcrumbSchema)} />
+    )}
+  </head>
+  <body id="page-top">
+    <!-- Slot de conteúdo principal -->
+    <slot />
+
+    <!-- Bootstrap core JS -->
+    <script is:inline src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts do Tema (Navbar e Scrollspy) -->
+    <script src="../scripts/scripts.js"></script>
+  </body>
+</html>

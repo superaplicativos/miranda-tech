@@ -1,0 +1,49 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Portfolio from '../components/Portfolio.astro';
+import BudgetCalculator from '../components/BudgetCalculator.astro';
+import About from '../components/About.astro';
+import Team from '../components/Team.astro';
+import Clients from '../components/Clients.astro';
+import Contact from '../components/Contact.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const pageTitle = "Miranda Tech | Soluções Digitais Corporativas de Alta Performance";
+const pageDescription = "Boutique premium de tecnologia liderada por Guilherme Miranda (26 anos de experiência). Especialistas em criação de sites estáticos ultravelozes, lojas virtuais e SEO programático regional.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Cabeçalho de Navegação -->
+  <Header />
+
+  <!-- Destaque / Hero -->
+  <Hero />
+
+  <!-- Grid de Serviços Centralizados -->
+  <Services />
+
+  <!-- Grid de Casos de Sucesso (Portfólio) -->
+  <Portfolio />
+
+  <!-- Simulador de Orçamento em Tempo Real (WhatsApp & PayPal) -->
+  <BudgetCalculator />
+
+  <!-- Sobre / Linha do Tempo da Experiência Técnica -->
+  <About />
+
+  <!-- Equipe Executiva de Tecnologia -->
+  <Team />
+
+  <!-- Logos de Clientes / Parceiros -->
+  <Clients />
+
+  <!-- Formulário de Conversão e Envio -->
+  <Contact />
+
+  <!-- WhatsApp Flutuante no Canto Inferior -->
+  <WhatsAppButton />
+</Layout>

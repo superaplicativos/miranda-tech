@@ -1,0 +1,174 @@
+---
+// src/pages/[slug]/[city].astro
+import { CITIES, COMBINATIONS, generateSEOContent, SERVICES, NICHOS } from '../../data/seo-data';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import BudgetCalculator from '../../components/BudgetCalculator.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+
+// Exportando getStaticPaths para gerar todas as ~1000 combinações estaticamente
+export function getStaticPaths() {
+  const paths = [];
+  for (const combo of COMBINATIONS) {
+    for (const city of CITIES) {
+      paths.push({
+        params: {
+          slug: combo.slug,
+          city: city.slug
+        },
+        props: {
+          city,
+          combo
+        }
+      });
+    }
+  }
+  return paths;
+}
+
+const { city, combo } = Astro.props;
+const base = '/miranda-tech';
+
+// Gerando o conteúdo único localizado
+const data = generateSEOContent(city, combo);
+const srv = SERVICES[combo.serviceKey];
+
+// Breadcrumbs para JSON-LD e Navegação
+const breadcrumbSchema = [
+  { name: 'Home', item: '/' },
+  { name: srv.name, item: `/${combo.slug}/` },
+  { name: city.name, item: `/${combo.slug}/${city.slug}/` }
+];
+
+// Local Business Schema localizado
+const localBusinessSchema = {
+  cityName: city.name,
+  description: `Atendimento local especializado de ${combo.title} em ${city.name} - SP e região. Projetos liderados por Guilherme Miranda, especialista em TI há 26 anos.`
+};
+---
+
+<Layout 
+  title={data.metaTitle} 
+  description={data.metaDescription}
+  faqSchema={data.faqs}
+  localBusinessSchema={localBusinessSchema}
+  breadcrumbSchema={breadcrumbSchema}
+>
+  <!-- Cabeçalho Dinâmico -->
+  <Header />
+
+  <!-- Hero Localizado -->
+  <Hero 
+    subheading={`ATENDIMENTO REGIONAL EM ${city.name.toUpperCase()} - SP`} 
+    heading={`${data.title.toUpperCase()} EM ${city.name.toUpperCase()}`}
+    ctaText="SOLICITAR ORÇAMENTO LOCAL"
+    ctaLink="#contact"
+  />
+
+  <!-- Conteúdo de SEO Técnico e Copywriting -->
+  <section class="page-section bg-light" id="details" style="padding: 5rem 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 pr-lg-5">
+          <h2 class="fw-bold mb-4" style="color: #212529; font-size: 2.2rem;">
+            {data.title} em {city.name}
+          </h2>
+          <div class="lead text-muted mb-4" style="line-height: 1.8rem; font-size: 1.15rem; text-align: justify;" set:html={data.introduction.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')} />
+          <div class="text-secondary mb-4" style="line-height: 1.7rem; font-size: 1.05rem; text-align: justify;" set:html={data.mainContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')} />
+          
+          <div class="p-3 bg-white border-start border-primary border-4 rounded shadow-sm mb-4" style="border-left: 5px solid #ffc800 !important;">
+            <p class="m-0 text-dark fw-bold" style="font-style: italic;">
+              "Oferecemos soluções corporativas customizadas que aliam 26 anos de arquitetura de TI com engenharia de conversão comercial. Projetos sob medida e imunes a gargalos de segurança." — Guilherme Miranda
+            </p>
+          </div>
+        </div>
+        
+        <!-- Cartão Lateral de Autoridade Local -->
+        <div class="col-lg-5 mt-4 mt-lg-0">
+          <div class="p-4 rounded shadow-lg bg-dark text-white border-0" style="background-color: #212529 !important;">
+            <h4 class="text-primary text-uppercase fw-bold mb-3" style="font-size: 1.1rem; color: #ffc800 !important; letter-spacing: 1px;">Vantagens em {city.name}</h4>
+            <ul class="list-unstyled mb-4" style="font-size: 0.95rem;">
+              {data.benefits.map((benefit) => (
+                <li class="d-flex align-items-start mb-3">
+                  <i class="fas fa-check-circle text-primary me-2 mt-1" style="color: #ffc800 !important;"></i>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+            <hr style="background-color: rgba(255,255,255,0.1);">
+            <div class="d-grid gap-2">
+              <a href="#calculadoras" class="btn btn-primary fw-bold text-uppercase" style="border-radius: 4px; padding: 0.8rem 1.5rem;">
+                <i class="fas fa-calculator me-2"></i> Abrir Simulador de Preço
+              </a>
+              <a href="#contact" class="btn btn-outline-light fw-bold text-uppercase" style="border-radius: 4px; font-size: 0.85rem;">
+                Falar Conosco
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Simulador de Orçamentos Localizado (Excelente para Conversão Orgânica!) -->
+  <BudgetCalculator />
+
+  <!-- FAQ Localizado Accordion -->
+  <section class="page-section bg-white" id="faq" style="padding: 5rem 0; border-top: 1px solid #dee2e6;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-heading text-uppercase" style="font-weight: 700;">Perguntas Frequentes</h2>
+        <h3 class="section-subheading text-muted" style="font-style: italic;">Dúvidas esclarecidas sobre {srv.name.toLowerCase()} em {city.name}.</h3>
+      </div>
+      
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="accordion" id="accordionFaq">
+            {data.faqs.map((faq, index) => (
+              <div class="accordion-item border-0 mb-3 shadow-sm" style="border-radius: 6px; overflow: hidden;">
+                <h2 class="accordion-header" id={`headingFaq${index}`}>
+                  <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target={`#collapseFaq${index}`} aria-expanded="false" aria-controls={`collapseFaq${index}`} style="background-color: #f8f9fa; padding: 1.25rem 1.5rem;">
+                    {faq.question}
+                  </button>
+                </h2>
+                <div id={`collapseFaq${index}`} class="accordion-collapse collapse" aria-labelledby={`headingFaq${index}`} data-bs-parent="#accordionFaq">
+                  <div class="accordion-body text-secondary" style="padding: 1.5rem; line-height: 1.6rem; font-size: 0.95rem; text-align: justify; background: #fff;">
+                    {faq.answer}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outras Cidades Próximas (Linkagem Interna Agressiva para Ranqueamento no Google) -->
+  <section class="page-section bg-light" id="nearby-links" style="padding: 4rem 0; border-top: 1px solid #dee2e6;">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h4 class="text-uppercase fw-bold" style="font-size: 1rem; letter-spacing: 1px; color: #495057;">Cidades Atendidas na {city.region}</h4>
+      </div>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        {CITIES.filter(c => city.nearby.includes(c.name) || c.slug === city.slug).map(c => (
+          <a 
+            href={`${base}/${combo.slug}/${c.slug}/`} 
+            class={`btn btn-sm ${c.slug === city.slug ? 'btn-primary text-dark fw-bold' : 'btn-outline-secondary'}`}
+            style="border-radius: 4px; padding: 0.5rem 1rem;"
+          >
+            {c.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Captura e WhatsApp Flutuante -->
+  <Contact />
+  <Footer />
+  <WhatsAppButton message={data.cta} />
+</Layout>

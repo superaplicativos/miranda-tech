@@ -1,0 +1,33 @@
+---
+// src/components/Header.astro
+const base = '/miranda-tech';
+const path = Astro.url.pathname;
+const isHome = path === `${base}/` || path === `${base}` || path === '/' || path === '';
+
+const getLink = (anchor: string) => {
+  return isHome ? anchor : `${base}/${anchor}`;
+};
+---
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href={getLink('#page-top')}>
+      <img src={`${base}/assets/img/navbar-logo.svg`} alt="Miranda Tech" style="height: 2.2rem;" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars ms-1"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+        <li class="nav-item"><a class="nav-link" href={getLink('#services')}>Serviços</a></li>
+        <li class="nav-item"><a class="nav-link" href={getLink('#portfolio')}>Portfólio</a></li>
+        <li class="nav-item"><a class="nav-link" href={getLink('#calculadoras')}>Simulador</a></li>
+        <li class="nav-item"><a class="nav-link" href={getLink('#about')}>Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href={getLink('#team')}>Especialista</a></li>
+        <li class="nav-item"><a class="nav-link" href={`${base}/blog/`}>Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href={getLink('#contact')}>Contato</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

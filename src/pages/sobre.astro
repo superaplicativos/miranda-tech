@@ -1,0 +1,53 @@
+---
+// src/pages/sobre.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Team from '../components/Team.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const pageTitle = "Sobre Guilherme Miranda & Miranda Tech | 26 Anos de Experiência";
+const pageDescription = "Conheça a história de inovação e excelência de Guilherme Miranda. Mais de 1.200 sites e softwares entregues para pequenas, médias e grandes empresas multinacionais.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Header />
+  
+  <Hero 
+    subheading="AUTORIDADE & CREDIBILIDADE" 
+    heading="MUITO ALÉM DE UMA AGÊNCIA DE INFORMÁTICA COMUM"
+    ctaText="FALAR COM GUILHERME MIRANDA"
+    ctaLink="#contact"
+  />
+
+  <section class="page-section bg-light" style="padding: 5rem 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-4" style="color: #212529;">Guilherme Miranda</h2>
+          <h5 class="text-primary mb-3" style="color: #ffc800 !important; font-weight: 700;">Arquiteto Sênior de TI e Especialista Comercial</h5>
+          <p class="text-muted" style="line-height: 1.7rem; text-align: justify;">
+            Com uma carreira sólida que se estende por mais de duas décadas, Guilherme Miranda consolidou-se como um dos desenvolvedores e analistas de tecnologia mais experientes do interior de São Paulo. Tendo comercializado e entregue com sucesso mais de **1.200 projetos digitais**, sua especialidade reside na fusão entre engenharia de software pura e alavancagem de crescimento orgânico e comercial.
+          </p>
+          <p class="text-secondary" style="line-height: 1.6rem; text-align: justify;">
+            Nossa missão na Miranda Tech não é apenas construir páginas esteticamente bonitas, mas desenhar verdadeiras engrenagens estáticas de escala comercial. Eliminamos a infraestrutura obsoleta do WordPress para entregar projetos extremamente rápidos, imunes a invasões de segurança e altamente otimizados para ranquear organicamente nos maiores buscadores mundiais.
+          </p>
+        </div>
+        <div class="col-lg-6 mt-4 mt-lg-0 text-center">
+          <img class="img-fluid rounded shadow-lg" src="/miranda-tech/assets/img/team/3.jpg" alt="Guilherme Miranda" style="max-height: 450px; border-radius: 8px; border: 5px solid #fff;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Linha do Tempo e Membros do Time -->
+  <About />
+  <Team />
+  
+  <Contact />
+  <Footer />
+  <WhatsAppButton />
+</Layout>

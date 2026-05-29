@@ -1,0 +1,19 @@
+{
+  "name": "miranda-tech",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build && node scripts/generate-sitemap.js",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^4.16.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
