@@ -19,7 +19,7 @@ export interface Service {
 export interface Niche {
   key: string;
   name: string;
-  article: string; // "para" | "de" | "para clínicas de" etc.
+  article: string; // "para" | "de"
   singularName: string;
 }
 
@@ -39,131 +39,131 @@ export interface SEOPageData {
 
 // 60 Cidades do Interior e Estado de São Paulo
 export const CITIES: City[] = [
-  { name: 'Ribeirão Preto', slug: 'ribeirao-preto', region: 'Região Metropolitana de Ribeirão Preto', phrase: 'maior potência tecnológica e de agronegócio do interior paulista', populationBracket: 'large', nearby: ['Cravinhos', 'Jardinópolis', 'Sertãozinho', 'Brodowski', 'Batatais'] },
-  { name: 'Franca', slug: 'franca', region: 'Região de Franca', phrase: 'a capital nacional do calçado e importante polo econômico da Alta Mogiana', populationBracket: 'large', nearby: ['Batatais', 'Patrocínio Paulista', 'Claraval', 'Restinga', 'Orlândia'] },
-  { name: 'Mococa', slug: 'mococa', region: 'Mantiqueira/Leste Paulista', phrase: 'histórica e vibrante cidade de forte potencial agrícola e comercial', populationBracket: 'medium', nearby: ['Tambaú', 'Casa Branca', 'Cajuru', 'Arceburgo', 'Tapiratiba'] },
-  { name: 'Sertãozinho', slug: 'sertaozinho', region: 'Região Metropolitana de Ribeirão Preto', phrase: 'um dos maiores polos industriais e metalmecânicos do Brasil', populationBracket: 'large', nearby: ['Ribeirão Preto', 'Pontal', 'Dumont', 'Barrinha', 'Jardinópolis'] },
-  { name: 'Batatais', slug: 'batatais', region: 'Região da Alta Mogiana', phrase: 'cidade histórica, turística e de riquíssima tradição agroindustrial', populationBracket: 'medium', nearby: ['Brodowski', 'Franca', 'Altinópolis', 'Ribeirão Preto', 'Cravinhos'] },
-  { name: 'Jaboticabal', slug: 'jaboticabal', region: 'Região de Ribeirão Preto', phrase: 'a terra das rosas e polo educacional de destaque tecnológico', populationBracket: 'medium', nearby: ['Bebedouro', 'Monte Alto', 'Taquaritinga', 'Matão', 'Sertãozinho'] },
-  { name: 'Bebedouro', slug: 'bebedouro', region: 'Região de Barretos', phrase: 'polo citrícola e centro logístico de grande relevância regional', populationBracket: 'medium', nearby: ['Jaboticabal', 'Barretos', 'Monte Azul Paulista', 'Colina', 'Viradouro'] },
-  { name: 'São Carlos', slug: 'sao-carlos', region: 'Região Central Paulista', phrase: 'capital nacional da tecnologia, inovação e excelência acadêmica', populationBracket: 'large', nearby: ['Araraquara', 'Ibaté', 'Ribeirão Bonito', 'Descalvado', 'Porto Ferreira'] },
-  { name: 'Araraquara', slug: 'araraquara', region: 'Região Central Paulista', phrase: 'referência nacional em qualidade de vida, indústria e comércio forte', populationBracket: 'large', nearby: ['São Carlos', 'Matão', 'Américo Brasiliense', 'Ibitinga', 'Ibiporã'] },
-  { name: 'Barretos', slug: 'barretos', region: 'Região de Barretos', phrase: 'capital nacional do rodeio e referência internacional em saúde', populationBracket: 'large', nearby: ['Bebedouro', 'Colina', 'Guaíra', 'Olímpia', 'Franca'] },
-  { name: 'Cravinhos', slug: 'cravinhos', region: 'Região Metropolitana de Ribeirão Preto', phrase: 'polo industrial em franco crescimento e localização estratégica na Rodovia Anhanguera', populationBracket: 'medium', nearby: ['Ribeirão Preto', 'Serrana', 'São Simão', 'Luis Antônio', 'Brodowski'] },
-  { name: 'Jardinópolis', slug: 'jardinopolis', region: 'Região Metropolitana de Ribeirão Preto', phrase: 'cidade de forte dinamismo econômico e proximidade com grandes centros', populationBracket: 'medium', nearby: ['Ribeirão Preto', 'Brodowski', 'Sertãozinho', 'Sales Oliveira', 'Pontal'] },
-  { name: 'Cajuru', slug: 'cajuru', region: 'Região de Ribeirão Preto', phrase: 'cidade acolhedora com forte base agropecuária e comércio local em expansão', populationBracket: 'medium', nearby: ['Cássia dos Coqueiros', 'Mococa', 'Santa Cruz da Esperança', 'Santo Antônio da Alegria', 'Altinópolis'] },
-  { name: 'Brodowski', slug: 'brodowski', region: 'Região Metropolitana de Ribeirão Preto', phrase: 'terra natal do pintor Portinari e polo de forte identidade cultural', populationBracket: 'medium', nearby: ['Batatais', 'Ribeirão Preto', 'Jardinópolis', 'Cravinhos', 'Altinópolis'] },
-  { name: 'Orlândia', slug: 'orlandia', region: 'Região de Franca', phrase: 'polo industrial de alta performance na região da Alta Mogiana', populationBracket: 'medium', nearby: ['São Joaquim da Barra', 'Sales Oliveira', 'Morro Agudo', 'Nuporanga', 'Franca'] },
-  { name: 'Monte Alto', slug: 'monte-alto', region: 'Região de Ribeirão Preto', phrase: 'polo de metalurgia, fundição e turismo arqueológico', populationBracket: 'medium', nearby: ['Jaboticabal', 'Taquaritinga', 'Vista Alegre do Alto', 'Cândido Rodrigues', 'Bebedouro'] },
-  { name: 'Taquaritinga', slug: 'taquaritinga', region: 'Região de Ribeirão Preto', phrase: 'cidade estudantil e polo agrícola do Leste Paulista', populationBracket: 'medium', nearby: ['Monte Alto', 'Matão', 'Itápolis', 'Santa Ernestina', 'Jaboticabal'] },
-  { name: 'Matão', slug: 'matao', region: 'Região Central Paulista', phrase: 'gigante da agroindústria cítrica e polo metalmecânico regional', populationBracket: 'large', nearby: ['Araraquara', 'Taquaritinga', 'Dobrada', 'Motuca', 'São Carlos'] },
-  { name: 'Campinas', slug: 'campinas', region: 'Região Metropolitana de Campinas', phrase: 'maior polo de tecnologia da América Latina e metrópole interiorana vibrante', populationBracket: 'large', nearby: ['Valinhos', 'Vinhedo', 'Sumaré', 'Hortolândia', 'Americana'] },
-  { name: 'Piracicaba', slug: 'piracicaba', region: 'Região de Piracicaba', phrase: 'polo da bioenergia, agrotecnologia e pujança industrial paulista', populationBracket: 'large', nearby: ['Limeira', 'Rio Claro', 'Santa Bárbara d\'Oeste', 'Americana', 'Tietê'] },
-  { name: 'Limeira', slug: 'limeira', region: 'Região de Piracicaba', phrase: 'capital nacional da joia folheada e polo industrial estratégico', populationBracket: 'large', nearby: ['Cordeirópolis', 'Iracemápolis', 'Piracicaba', 'Americana', 'Rio Claro'] },
-  { name: 'Americana', slug: 'americana', region: 'Região Metropolitana de Campinas', phrase: 'histórico polo têxtil e comercial de altíssima infraestrutura urbana', populationBracket: 'large', nearby: ['Santa Bárbara d\'Oeste', 'Nova Odessa', 'Sumaré', 'Limeira', 'Campinas'] },
-  { name: 'Rio Claro', slug: 'rio-claro', region: 'Região de Piracicaba', phrase: 'importante centro ferroviário, cerâmico e de produção industrial', populationBracket: 'large', nearby: ['Santa Gertrudes', 'Araras', 'Piracicaba', 'Limeira', 'São Carlos'] },
-  { name: 'São José do Rio Preto', slug: 'sao-jose-do-rio-preto', region: 'Região de Rio Preto', phrase: 'principal centro comercial, médico e de serviços do Noroeste Paulista', populationBracket: 'large', nearby: ['Mirassol', 'Bady Bassitt', 'Catanduva', 'Votuporanga', 'Barretos'] },
-  // Adicionais para volumetria e domínio regional do SEO Programático
-  { name: 'Jundiaí', slug: 'jundiai', region: 'Região Metropolitana de Jundiaí', phrase: 'uma das melhores cidades do país para negócios e infraestrutura de logística', populationBracket: 'large', nearby: ['Várzea Paulista', 'Campo Limpo Paulista', 'Itupeva', 'Louveira', 'Campinas'] },
-  { name: 'Sorocaba', slug: 'sorocaba', region: 'Região Metropolitana de Sorocaba', phrase: 'gigante industrial metalmecânico e polo tecnológico do sudoeste paulista', populationBracket: 'large', nearby: ['Votorantim', 'Itu', 'Salto', 'Araçoiaba da Serra', 'Iperó'] },
-  { name: 'Bauru', slug: 'bauru', region: 'Região de Bauru', phrase: 'polo educacional, comercial e de serviços médico-odontológicos do Centro-Oeste paulista', populationBracket: 'large', nearby: ['Agudos', 'Pederneiras', 'Duartina', 'Piratininga', 'Jaú'] },
-  { name: 'Marília', slug: 'marilia', region: 'Região de Marília', phrase: 'capital nacional do alimento e forte centro universitário e digital', populationBracket: 'large', nearby: ['Pompéia', 'Garça', 'Vera Cruz', 'Assis', 'Ourinhos'] },
-  { name: 'Presidente Prudente', slug: 'presidente-prudente', region: 'Região de Presidente Prudente', phrase: 'capital do Oeste Paulista e polo de serviços de altíssima influência regional', populationBracket: 'large', nearby: ['Álvares Machado', 'Pirapozinho', 'Regente Feijó', 'Martinópolis', 'Assis'] },
-  { name: 'Araçatuba', slug: 'aracatuba', region: 'Região de Araçatuba', phrase: 'polo do setor sucroenergético e agropecuária de alta tecnologia', populationBracket: 'large', nearby: ['Birigui', 'Guararapes', 'Penápolis', 'Bilac', 'Lins'] },
-  { name: 'Itu', slug: 'itu', region: 'Região de Sorocaba', phrase: 'cidade histórica, turística e polo de condomínios residenciais de alto padrão', populationBracket: 'large', nearby: ['Salto', 'Sorocaba', 'Porto Feliz', 'Indaiatuba', 'Cabreúva'] },
-  { name: 'Indaiatuba', slug: 'indaiatuba', region: 'Região Metropolitana de Campinas', phrase: 'cidade modelo de segurança, polo industrial automotivo e qualidade de vida', populationBracket: 'large', nearby: ['Itu', 'Salto', 'Campinas', 'Elias Fausto', 'Valinhos'] },
-  { name: 'Hortolândia', slug: 'hortolandia', region: 'Região Metropolitana de Campinas', phrase: 'polo tecnológico de data centers e indústrias de ponta no interior', populationBracket: 'large', nearby: ['Sumaré', 'Campinas', 'Monte Mor', 'Americana', 'Nova Odessa'] },
-  { name: 'Sumaré', slug: 'sumare', region: 'Região Metropolitana de Campinas', phrase: 'segunda maior cidade da região metropolitana com forte polo fabril e logístico', populationBracket: 'large', nearby: ['Nova Odessa', 'Americana', 'Hortolândia', 'Campinas', 'Paulínia'] },
-  { name: 'Valinhos', slug: 'valinhos', region: 'Região Metropolitana de Campinas', phrase: 'terra da figo roxo e importante polo logístico e imobiliário de luxo', populationBracket: 'large', nearby: ['Campinas', 'Vinhedo', 'Itatiba', 'Indaiatuba', 'Louveira'] },
-  { name: 'Vinhedo', slug: 'vinhedo', region: 'Região Metropolitana de Campinas', phrase: 'cidade de alto padrão socioeconômico e infraestrutura industrial privilegiada', populationBracket: 'medium', nearby: ['Valinhos', 'Louveira', 'Jundiaí', 'Itupeva', 'Campinas'] },
-  { name: 'Itatiba', slug: 'itatiba', region: 'Região Metropolitana de Campinas', phrase: 'polo moveleiro e têxtil com forte qualidade de vida e crescimento industrial', populationBracket: 'large', nearby: ['Valinhos', 'Jundiaí', 'Bragança Paulista', 'Morungaba', 'Atibaia'] },
-  { name: 'Bragança Paulista', slug: 'braganca-paulista', region: 'Região Bragantina', phrase: 'polo universitário e turístico na Região da Serra da Mantiqueira', populationBracket: 'large', nearby: ['Atibaia', 'Itatiba', 'Piracaia', 'Extrema', 'Socorro'] },
-  { name: 'Atibaia', slug: 'atibaia', region: 'Região Bragantina', phrase: 'cidade das flores e do morango, polo turístico e de condomínios nobres', populationBracket: 'large', nearby: ['Bragança Paulista', 'Mairiporã', 'Itatiba', 'Bom Jesus dos Perdões', 'Guarulhos'] },
-  { name: 'São João da Boa Vista', slug: 'sao-joao-da-boa-vista', region: 'Leste Paulista', phrase: 'centro universitário e comercial de altíssima relevância na divisa mineira', populationBracket: 'medium', nearby: ['Águas da Prata', 'Vargem Grande do Sul', 'Espírito Santo do Pinhal', 'Mogi Guaçu', 'Casa Branca'] },
-  { name: 'São José dos Campos', slug: 'sao-jose-dos-campos', region: 'Vale do Paraíba', phrase: 'principal polo aeroespacial, tecnológico e de defesa da América do Sul', populationBracket: 'large', nearby: ['Jacareí', 'Caçapava', 'Taubaté', 'Campos do Jordão', 'Mogi das Cruzes'] },
-  { name: 'Taubaté', slug: 'taubate', region: 'Vale do Paraíba', phrase: 'tradicional polo industrial metalúrgico e importante centro universitário', populationBracket: 'large', nearby: ['Pindamonhangaba', 'São José dos Campos', 'Caçapava', 'Tremembé', 'Ubatuba'] },
-  { name: 'Jacareí', slug: 'jacarei', region: 'Vale do Paraíba', phrase: 'polo industrial estratégico conectado diretamente ao eixo Rio-São Paulo', populationBracket: 'large', nearby: ['São José dos Campos', 'Santa Isabel', 'Mogi das Cruzes', 'Caçapava', 'Guarulhos'] },
-  { name: 'Pindamonhangaba', slug: 'pindamonhangaba', region: 'Vale do Paraíba', phrase: 'capital da metalurgia pesada e reciclagem de alumínio do interior', populationBracket: 'large', nearby: ['Taubaté', 'Tremembé', 'Roseira', 'Aparecida', 'Campos do Jordão'] },
-  { name: 'Santos', slug: 'santos', region: 'Baixada Santista', phrase: 'maior porto da América Latina e grandioso centro logístico nacional', populationBracket: 'large', nearby: ['São Vicente', 'Guarujá', 'Cubatão', 'Praia Grande', 'Bertioga'] },
-  { name: 'Guarujá', slug: 'guaruja', region: 'Baixada Santista', phrase: 'pérola do Atlântico e polo de turismo e negócios navais', populationBracket: 'large', nearby: ['Santos', 'Bertioga', 'São Vicente', 'Cubatão', 'Praia Grande'] },
-  { name: 'Praia Grande', slug: 'praia-grande', region: 'Baixada Santista', phrase: 'cidade litorânea de maior crescimento habitacional e comercial da costa paulista', populationBracket: 'large', nearby: ['São Vicente', 'Mongaguá', 'Santos', 'Guarujá', 'Itanhaém'] },
-  { name: 'Mogi Guaçu', slug: 'mogi-guacu', region: 'Região da Baixa Mogiana', phrase: 'importante centro cerâmico, papeleiro e polo de comércio de destaque regional', populationBracket: 'large', nearby: ['Mogi Mirim', 'Itapira', 'Estiva Gerbi', 'Espírito Santo do Pinhal', 'Araras'] },
-  { name: 'Mogi Mirim', slug: 'mogi-mirim', region: 'Região da Baixa Mogiana', phrase: 'polo educacional, agroindustrial e comercial de forte localização estratégica', populationBracket: 'medium', nearby: ['Mogi Guaçu', 'Itapira', 'Artur Nogueira', 'Conchal', 'Holambra'] },
-  { name: 'Leme', slug: 'leme', region: 'Região Central Paulista', phrase: 'polo de agricultura e indústrias em forte desenvolvimento estrutural', populationBracket: 'large', nearby: ['Araras', 'Pirassununga', 'Santa Cruz da Conceição', 'Porto Ferreira', 'Rio Claro'] },
-  { name: 'Pirassununga', slug: 'pirassununga', region: 'Região Central Paulista', phrase: 'capital nacional da cachaça e sede da prestigiada Academia da Força Aérea', populationBracket: 'medium', nearby: ['Porto Ferreira', 'Leme', 'Santa Cruz das Palmeiras', 'Descalvado', 'Araras'] },
-  { name: 'Porto Ferreira', slug: 'porto-ferreira', region: 'Região Central Paulista', phrase: 'capital nacional da cerâmica artística e decoração', populationBracket: 'medium', nearby: ['Pirassununga', 'Descalvado', 'Santa Cruz das Palmeiras', 'Leme', 'São Carlos'] },
-  { name: 'Casa Branca', slug: 'casa-branca', region: 'Leste Paulista', phrase: 'capital nacional da jabuticaba e terra de forte tradição citrícola e histórica', populationBracket: 'medium', nearby: ['Mococa', 'Tambaú', 'Itobi', 'São José do Rio Pardo', 'Vargem Grande do Sul'] },
-  { name: 'Tambaú', slug: 'tambau', region: 'Leste Paulista', phrase: 'polo nacional de cerâmica estrutural e forte turismo religioso', populationBracket: 'small', nearby: ['Mococa', 'Santa Cruz das Palmeiras', 'Casa Branca', 'Porto Ferreira', 'Ibiporã'] },
-  { name: 'Santa Rosa de Viterbo', slug: 'santa-rosa-de-viterbo', region: 'Região de Ribeirão Preto', phrase: 'cidade acolhedora com forte base agroindustrial e localização estratégica', populationBracket: 'small', nearby: ['São Simão', 'Cajuru', 'Tambaú', 'Santa Cruz das Palmeiras', 'Ribeirão Preto'] }
+  { name: 'Ribeirão Preto', slug: 'ribeirao-preto', region: 'Região de Ribeirão', phrase: 'a maior cidade e polo de negócios da nossa região', populationBracket: 'large', nearby: ['Cravinhos', 'Jardinópolis', 'Sertãozinho', 'Brodowski', 'Batatais'] },
+  { name: 'Franca', slug: 'franca', region: 'Região de Franca', phrase: 'grande centro de comércio e importante polo da nossa região', populationBracket: 'large', nearby: ['Batatais', 'Patrocínio Paulista', 'Claraval', 'Restinga', 'Orlândia'] },
+  { name: 'Mococa', slug: 'mococa', region: 'Leste Paulista', phrase: 'cidade de forte comércio local e agronegócio ativo', populationBracket: 'medium', nearby: ['Tambaú', 'Casa Branca', 'Cajuru', 'Arceburgo', 'Tapiratiba'] },
+  { name: 'Sertãozinho', slug: 'sertaozinho', region: 'Região de Ribeirão Preto', phrase: 'um dos maiores polos de indústria e prestação de serviços', populationBracket: 'large', nearby: ['Ribeirão Preto', 'Pontal', 'Dumont', 'Barrinha', 'Jardinópolis'] },
+  { name: 'Batatais', slug: 'batatais', region: 'Alta Mogiana', phrase: 'cidade com forte comércio e prestadores de serviços de destaque', populationBracket: 'medium', nearby: ['Brodowski', 'Franca', 'Altinópolis', 'Ribeirão Preto', 'Cravinhos'] },
+  { name: 'Jaboticabal', slug: 'jaboticabal', region: 'Região de Ribeirão Preto', phrase: 'polo de comércio forte e ótimas empresas prestadoras de serviço', populationBracket: 'medium', nearby: ['Bebedouro', 'Monte Alto', 'Taquaritinga', 'Matão', 'Sertãozinho'] },
+  { name: 'Bebedouro', slug: 'bebedouro', region: 'Região de Barretos', phrase: 'cidade com grande circulação de negócios e forte setor comercial', populationBracket: 'medium', nearby: ['Jaboticabal', 'Barretos', 'Monte Azul Paulista', 'Colina', 'Viradouro'] },
+  { name: 'São Carlos', slug: 'sao-carlos', region: 'Central Paulista', phrase: 'cidade moderna com forte comércio e destaque empresarial', populationBracket: 'large', nearby: ['Araraquara', 'Ibaté', 'Descalvado', 'Porto Ferreira'] },
+  { name: 'Araraquara', slug: 'araraquara', region: 'Central Paulista', phrase: 'referência em comércio ativo e prestadores de serviços qualificados', populationBracket: 'large', nearby: ['São Carlos', 'Matão', 'Américo Brasiliense', 'Ibitinga'] },
+  { name: 'Barretos', slug: 'barretos', region: 'Região de Barretos', phrase: 'polo comercial de grande destaque no interior', populationBracket: 'large', nearby: ['Bebedouro', 'Colina', 'Guaíra', 'Olímpia', 'Franca'] },
+  { name: 'Cravinhos', slug: 'cravinhos', region: 'Região de Ribeirão', phrase: 'cidade em pleno crescimento de novos negócios e comércio', populationBracket: 'medium', nearby: ['Ribeirão Preto', 'Serrana', 'São Simão', 'Brodowski'] },
+  { name: 'Jardinópolis', slug: 'jardinopolis', region: 'Região de Ribeirão Preto', phrase: 'cidade ativa e próxima de grandes mercados consumidores', populationBracket: 'medium', nearby: ['Ribeirão Preto', 'Brodowski', 'Sertãozinho', 'Pontal'] },
+  { name: 'Cajuru', slug: 'cajuru', region: 'Leste Paulista', phrase: 'cidade de forte potencial comercial e agropecuário', populationBracket: 'medium', nearby: ['Mococa', 'Altinópolis', 'Santa Rosa de Viterbo', 'Tambaú'] },
+  { name: 'Brodowski', slug: 'brodowski', region: 'Região de Ribeirão Preto', phrase: 'cidade com comércio vibrante e em constante expansão', populationBracket: 'medium', nearby: ['Batatais', 'Ribeirão Preto', 'Jardinópolis', 'Cravinhos'] },
+  { name: 'Orlândia', slug: 'orlandia', region: 'Região de Franca', phrase: 'polo de comércio ativo e de excelentes prestadores de serviço', populationBracket: 'medium', nearby: ['São Joaquim da Barra', 'Morro Agudo', 'Nuporanga', 'Franca'] },
+  { name: 'Monte Alto', slug: 'monte-alto', region: 'Região de Ribeirão', phrase: 'cidade com excelentes empresas locais e forte comércio', populationBracket: 'medium', nearby: ['Jaboticabal', 'Taquaritinga', 'Bebedouro'] },
+  { name: 'Taquaritinga', slug: 'taquaritinga', region: 'Leste Paulista', phrase: 'cidade estudantil e comercial de grande dinamismo regional', populationBracket: 'medium', nearby: ['Monte Alto', 'Matão', 'Itápolis', 'Jaboticabal'] },
+  { name: 'Matão', slug: 'matao', region: 'Central Paulista', phrase: 'gigante em indústrias e forte polo de comércio regional', populationBracket: 'large', nearby: ['Araraquara', 'Taquaritinga', 'Dobrada', 'São Carlos'] },
+  { name: 'Campinas', slug: 'campinas', region: 'Grande Campinas', phrase: 'um dos maiores mercados de consumo e tecnologia do estado', populationBracket: 'large', nearby: ['Valinhos', 'Vinhedo', 'Sumaré', 'Hortolândia', 'Americana'] },
+  { name: 'Piracicaba', slug: 'piracicaba', region: 'Região de Piracicaba', phrase: 'polo industrial vibrante e com comércio local muito forte', populationBracket: 'large', nearby: ['Limeira', 'Rio Claro', 'Americana', 'Tietê'] },
+  { name: 'Limeira', slug: 'limeira', region: 'Região de Piracicaba', phrase: 'polo comercial de grande destaque no cenário estadual', populationBracket: 'large', nearby: ['Cordeirópolis', 'Piracicaba', 'Americana', 'Rio Claro'] },
+  { name: 'Americana', slug: 'americana', region: 'Grande Campinas', phrase: 'cidade de comércio muito forte e infraestrutura urbana de alto nível', populationBracket: 'large', nearby: ['Sumaré', 'Limeira', 'Campinas'] },
+  { name: 'Rio Claro', slug: 'rio-claro', region: 'Região de Piracicaba', phrase: 'importante centro de comércio e empresas na nossa região', populationBracket: 'large', nearby: ['Araras', 'Piracicaba', 'Limeira', 'São Carlos'] },
+  { name: 'São José do Rio Preto', slug: 'sao-jose-do-rio-preto', region: 'Noroeste Paulista', phrase: 'principal centro de comércio e serviços médicos de toda a região', populationBracket: 'large', nearby: ['Mirassol', 'Catanduva', 'Votuporanga', 'Barretos'] },
+  // Cidades Adicionais
+  { name: 'Jundiaí', slug: 'jundiai', region: 'Região de Jundiaí', phrase: 'cidade modelo em novos negócios e forte atração de clientes', populationBracket: 'large', nearby: ['Itupeva', 'Louveira', 'Campinas'] },
+  { name: 'Sorocaba', slug: 'sorocaba', region: 'Região de Sorocaba', phrase: 'polo comercial de extrema força econômica no interior', populationBracket: 'large', nearby: ['Votorantim', 'Itu', 'Salto', 'Sorocaba'] },
+  { name: 'Bauru', slug: 'bauru', region: 'Central Paulista', phrase: 'grande centro de comércio e polo prestador de serviços regional', populationBracket: 'large', nearby: ['Agudos', 'Pederneiras', 'Jaú'] },
+  { name: 'Marília', slug: 'marilia', region: 'Região de Marília', phrase: 'polo de comércio forte e empresas de destaque regional', populationBracket: 'large', nearby: ['Garça', 'Assis', 'Ourinhos'] },
+  { name: 'Presidente Prudente', slug: 'presidente-prudente', region: 'Oeste Paulista', phrase: 'cidade polo de serviços e forte comércio regional', populationBracket: 'large', nearby: ['Regente Feijó', 'Martinópolis', 'Assis'] },
+  { name: 'Araçatuba', slug: 'aracatuba', region: 'Região de Araçatuba', phrase: 'polo comercial e de agronegócio de grande destaque regional', populationBracket: 'large', nearby: ['Birigui', 'Penápolis', 'Lins'] },
+  { name: 'Itu', slug: 'itu', region: 'Região de Sorocaba', phrase: 'cidade turística e de excelentes marcas comerciais', populationBracket: 'large', nearby: ['Salto', 'Sorocaba', 'Indaiatuba'] },
+  { name: 'Indaiatuba', slug: 'indaiatuba', region: 'Região de Campinas', phrase: 'polo de novas empresas e excelente qualidade comercial', populationBracket: 'large', nearby: ['Itu', 'Salto', 'Campinas'] },
+  { name: 'Hortolândia', slug: 'hortolandia', region: 'Região de Campinas', phrase: 'cidade com forte comércio e empresas prestadoras em plena expansão', populationBracket: 'large', nearby: ['Sumaré', 'Campinas', 'Nova Odessa'] },
+  { name: 'Sumaré', slug: 'sumare', region: 'Região de Campinas', phrase: 'segunda maior cidade da região metropolitana com grande comércio', populationBracket: 'large', nearby: ['Americana', 'Hortolândia', 'Campinas'] },
+  { name: 'Valinhos', slug: 'valinhos', region: 'Região de Campinas', phrase: 'polo de comércio ativo e de novos negócios nobres', populationBracket: 'large', nearby: ['Campinas', 'Vinhedo', 'Itatiba'] },
+  { name: 'Vinhedo', slug: 'vinhedo', region: 'Região de Campinas', phrase: 'cidade de alto poder de compra e excelente para novos negócios', populationBracket: 'medium', nearby: ['Valinhos', 'Louveira', 'Jundiaí', 'Campinas'] },
+  { name: 'Itatiba', slug: 'itatiba', region: 'Região de Campinas', phrase: 'cidade acolhedora com comércio de destaque regional', populationBracket: 'large', nearby: ['Valinhos', 'Jundiaí', 'Atibaia'] },
+  { name: 'Bragança Paulista', slug: 'braganca-paulista', region: 'Região de Bragança', phrase: 'importante centro universitário e comercial regional', populationBracket: 'large', nearby: ['Atibaia', 'Socorro', 'Itatiba'] },
+  { name: 'Atibaia', slug: 'atibaia', region: 'Região de Bragança', phrase: 'polo comercial e de turismo muito forte', populationBracket: 'large', nearby: ['Bragança Paulista', 'Mairiporã', 'Itatiba'] },
+  { name: 'São João da Boa Vista', slug: 'sao-joao-da-boa-vista', region: 'Leste Paulista', phrase: 'polo educacional e comercial muito respeitado na região', populationBracket: 'medium', nearby: ['Vargem Grande do Sul', 'Mogi Guaçu', 'Casa Branca'] },
+  { name: 'São José dos Campos', slug: 'Vale do Paraíba', phrase: 'grande potência de novos negócios e comércio vibrante', region: 'Vale do Paraíba', populationBracket: 'large', nearby: ['Jacareí', 'Taubaté', 'Campos do Jordão'] },
+  { name: 'Taubaté', slug: 'taubate', region: 'Vale do Paraíba', phrase: 'polo comercial tradicional e com excelentes prestadores de serviço', populationBracket: 'large', nearby: ['Pindamonhangaba', 'São José dos Campos', 'Tremembé'] },
+  { name: 'Jacareí', slug: 'jacarei', region: 'Vale do Paraíba', phrase: 'cidade polo com forte expansão de marcas comerciais', populationBracket: 'large', nearby: ['São José dos Campos', 'Mogi das Cruzes', 'Caçapava'] },
+  { name: 'Pindamonhangaba', slug: 'pindamonhangaba', region: 'Vale do Paraíba', phrase: 'cidade com forte comércio e empresas prestadoras de serviço em destaque', populationBracket: 'large', nearby: ['Taubaté', 'Tremembé', 'Roseira'] },
+  { name: 'Santos', slug: 'santos', region: 'Baixada Santista', phrase: 'polo litorâneo com gigantesco comércio e atração de clientes', populationBracket: 'large', nearby: ['São Vicente', 'Guarujá', 'Praia Grande'] },
+  { name: 'Guarujá', slug: 'guaruja', region: 'Baixada Santista', phrase: 'cidade com forte comércio de turismo e empresas de destaque', populationBracket: 'large', nearby: ['Santos', 'São Vicente', 'Praia Grande'] },
+  { name: 'Praia Grande', slug: 'praia-grande', region: 'Baixada Santista', phrase: 'cidade litorânea em franco crescimento de novos clientes e negócios', populationBracket: 'large', nearby: ['São Vicente', 'Santos', 'Guarujá'] },
+  { name: 'Mogi Guaçu', slug: 'mogi-guacu', region: 'Baixa Mogiana', phrase: 'centro comercial de forte prestígio e com ótimas empresas prestadoras', populationBracket: 'large', nearby: ['Mogi Mirim', 'Itapira', 'Estiva Gerbi', 'Araras'] },
+  { name: 'Mogi Mirim', slug: 'mogi-mirim', region: 'Baixa Mogiana', phrase: 'cidade com comércio forte, escolas tradicionais e prestadores em crescimento', populationBracket: 'medium', nearby: ['Mogi Guaçu', 'Itapira', 'Artur Nogueira', 'Holambra'] },
+  { name: 'Leme', slug: 'leme', region: 'Central Paulista', phrase: 'cidade com comércio vibrante e ótimos prestadores locais', populationBracket: 'large', nearby: ['Araras', 'Pirassununga', 'Rio Claro'] },
+  { name: 'Pirassununga', slug: 'pirassununga', region: 'Central Paulista', phrase: 'cidade ativa e polo comercial de referência regional', populationBracket: 'medium', nearby: ['Porto Ferreira', 'Leme', 'Araras'] },
+  { name: 'Porto Ferreira', slug: 'porto-ferreira', region: 'Central Paulista', phrase: 'cidade ativa e referência em comércio e decoração regional', populationBracket: 'medium', nearby: ['Pirassununga', 'Descalvado', 'Leme', 'São Carlos'] },
+  { name: 'Casa Branca', slug: 'casa-branca', region: 'Leste Paulista', phrase: 'cidade acolhedora com comércio de destaque regional', populationBracket: 'medium', nearby: ['Mococa', 'Tambaú', 'São José do Rio Pardo'] },
+  { name: 'Tambaú', slug: 'tambau', region: 'Leste Paulista', phrase: 'cidade acolhedora com comércio local ativo e forte turismo de negócios', populationBracket: 'small', nearby: ['Mococa', 'Casa Branca', 'Porto Ferreira'] },
+  { name: 'Santa Rosa de Viterbo', slug: 'santa-rosa-de-viterbo', region: 'Região de Ribeirão', phrase: 'cidade acolhedora com comércio em plena expansão local', populationBracket: 'small', nearby: ['São Simão', 'Cajuru', 'Tambaú', 'Ribeirão Preto'] }
 ];
 
-// 11 Serviços Core
+// 11 Serviços Core - Traduzidos para linguagem simples de leigo
 export const SERVICES: Record<string, Service> = {
   'criacao-sites': {
     key: 'criacao-sites',
-    name: 'Criação de Sites',
+    name: 'Criação de Sites Rápidos',
     icon: 'fa-desktop',
-    description: 'Desenvolvimento de sites institucionais sob medida, extremamente rápidos, responsivos e focados na conversão de visitantes em clientes reais.'
+    description: 'Criamos sites profissionais que abrem instantaneamente no celular, passam extrema confiança aos seus clientes e convertem visitas em contatos reais.'
   },
   'ecommerce': {
     key: 'ecommerce',
-    name: 'E-commerce',
+    name: 'Lojas Virtuais Completas',
     icon: 'fa-shopping-cart',
-    description: 'Lojas virtuais completas com carrinhos intuitivos, integração com gateways de pagamento, checkout transparente e gestão simplificada de vendas.'
+    description: 'Sua loja online com carrinho fácil, formas de pagamento integradas (PIX e cartão) e controle simples para você vender 24 horas por dia.'
   },
   'seo': {
     key: 'seo',
-    name: 'SEO & Otimização',
+    name: 'Primeiro Lugar no Google',
     icon: 'fa-search',
-    description: 'Otimização avançada nos motores de busca para garantir posicionamento orgânico na primeira página do Google de forma sustentável e agressiva.'
+    description: 'Posicionamos sua empresa no topo do Google, do ChatGPT e das novas IAs de busca, para quando os clientes pesquisarem pelo seu serviço na sua cidade.'
   },
   'marketing-digital': {
     key: 'marketing-digital',
-    name: 'Marketing Digital',
+    name: 'Atração de Clientes',
     icon: 'fa-bullhorn',
-    description: 'Planejamento estratégico de marketing para gerar vendas consistentes e consolidar a relevância digital da sua marca no mercado regional.'
+    description: 'Campanhas de anúncios profissionais para fazer seu telefone tocar todos os dias com potenciais clientes querendo fechar negócio com você.'
   },
   'landing-pages': {
     key: 'landing-pages',
-    name: 'Landing Pages',
+    name: 'Páginas de Alta Conversão',
     icon: 'fa-bullseye',
-    description: 'Páginas de captura otimizadas para tráfego pago (Google/Meta Ads), projetadas cientificamente para converter cliques em leads no WhatsApp.'
+    description: 'Páginas curtas e persuasivas feitas especificamente para anúncios, projetadas cientificamente para direcionar o cliente direto para o seu WhatsApp.'
   },
   'trafego-pago': {
     key: 'trafego-pago',
-    name: 'Tráfego Pago',
+    name: 'Anúncios na Internet',
     icon: 'fa-chart-line',
-    description: 'Criação e otimização de campanhas de alta performance no Google Ads, Instagram Ads e Facebook Ads para retorno imediato do investimento.'
+    description: 'Configuramos e gerenciamos seus anúncios no Google, Instagram e Facebook para fazer o seu negócio aparecer para as pessoas certas na sua região.'
   },
   'automacoes-web': {
     key: 'automacoes-web',
-    name: 'Automações Web',
+    name: 'Sistemas e Aplicativos',
     icon: 'fa-cog',
-    description: 'Automação de fluxos de trabalho, conectando seu site a CRMs, ERPs, planilhas e e-mails para eliminar tarefas manuais e economizar tempo.'
+    description: 'Criamos aplicativos para celulares e sistemas sob medida para a sua empresa, organizando seus processos de forma automática para economizar horas de trabalho.'
   },
   'ia-para-empresas': {
     key: 'ia-para-empresas',
-    name: 'IA para Empresas',
+    name: 'Inteligência Artificial',
     icon: 'fa-robot',
-    description: 'Implementação prática de inteligência artificial, agentes autônomos e chatbots integrados para revolucionar o atendimento e operações comerciais.'
+    description: 'Instalamos atendentes inteligentes e automações com IA para responder seus clientes no WhatsApp instantaneamente e fechar orçamentos no piloto automático.'
   },
   'producao-videos': {
     key: 'producao-videos',
-    name: 'Produção de Vídeos',
+    name: 'Produção de Vídeos (Físico ou IA)',
     icon: 'fa-video',
-    description: 'Produção e edição de vídeos institucionais, comerciais de alta definição e reels para mídias digitais que engajam e geram alto impacto visual.'
+    description: 'Gravamos vídeos institucionais profissionais na sua empresa (com câmera de cinema e drone), ou produzimos vídeos 100% com Inteligência Artificial para poupar seu tempo.'
   },
   'hospedagem': {
     key: 'hospedagem',
-    name: 'Hospedagem Premium',
+    name: 'Hospedagem e Manutenção',
     icon: 'fa-server',
-    description: 'Hospedagem ultraveloz em servidores VPS de alta segurança, com backup diário, e-mails corporativos integrados e 99.9% de uptime garantido.'
+    description: 'Cuidamos de toda a parte técnica, servidores velozes, e-mails comerciais e backup diário para que seu site nunca fique fora do ar.'
   },
   'suporte-web': {
     key: 'suporte-web',
-    name: 'Suporte Web',
+    name: 'Suporte Técnico Direto',
     icon: 'fa-headset',
-    description: 'Manutenção periódica, correções técnicas, atualizações de segurança e suporte direto para garantir que sua plataforma funcione de forma estável.'
+    description: 'Suporte e atualizações rápidas sempre que você precisar. Fale direto com nosso time e resolva qualquer alteração ou melhoria sem burocracia.'
   }
 };
 
@@ -198,35 +198,35 @@ export interface Combination {
 // Mapeamento das combinações obrigatórias e extras
 export const COMBINATIONS: Combination[] = [
   // 1. Serviços Core Básicos (Sem nicho)
-  { slug: 'criacao-sites', serviceKey: 'criacao-sites', title: 'Criação de Sites Profissionais', shortName: 'Criação de Sites' },
-  { slug: 'ecommerce', serviceKey: 'ecommerce', title: 'Desenvolvimento de E-commerce', shortName: 'E-commerce' },
-  { slug: 'seo', serviceKey: 'seo', title: 'SEO e Otimização de Sites', shortName: 'SEO Otimização' },
-  { slug: 'marketing-digital', serviceKey: 'marketing-digital', title: 'Consultoria de Marketing Digital', shortName: 'Marketing Digital' },
-  { slug: 'landing-pages', serviceKey: 'landing-pages', title: 'Criação de Landing Pages de Alta Conversão', shortName: 'Landing Pages' },
-  { slug: 'trafego-pago', serviceKey: 'trafego-pago', title: 'Gestão de Tráfego Pago', shortName: 'Tráfego Pago' },
-  { slug: 'automacoes-web', serviceKey: 'automacoes-web', title: 'Automação de Processos Web', shortName: 'Automações Web' },
-  { slug: 'ia-para-empresas', serviceKey: 'ia-para-empresas', title: 'Inteligência Artificial para Negócios', shortName: 'IA para Empresas' },
-  { slug: 'producao-videos', serviceKey: 'producao-videos', title: 'Produção de Vídeo Corporativo', shortName: 'Produção de Vídeos' },
-  { slug: 'hospedagem', serviceKey: 'hospedagem', title: 'Hospedagem VPS Premium', shortName: 'Hospedagem Premium' },
-  { slug: 'suporte-web', serviceKey: 'suporte-web', title: 'Suporte Técnico e Manutenção Web', shortName: 'Suporte Web' },
+  { slug: 'criacao-sites', serviceKey: 'criacao-sites', title: 'Criação de Sites Rápidos', shortName: 'Criação de Sites' },
+  { slug: 'ecommerce', serviceKey: 'ecommerce', title: 'Lojas Virtuais Completas', shortName: 'Lojas Virtuais' },
+  { slug: 'seo', serviceKey: 'seo', title: 'Aparecer em Primeiro no Google', shortName: '1º Lugar no Google' },
+  { slug: 'marketing-digital', serviceKey: 'marketing-digital', title: 'Atração de Clientes da Região', shortName: 'Atração de Clientes' },
+  { slug: 'landing-pages', serviceKey: 'landing-pages', title: 'Páginas de Captura de Clientes', shortName: 'Páginas de Vendas' },
+  { slug: 'trafego-pago', serviceKey: 'trafego-pago', title: 'Anúncios e Divulgação Comercial', shortName: 'Anúncios na Internet' },
+  { slug: 'automacoes-web', serviceKey: 'automacoes-web', title: 'Sistemas e Aplicativos sob Medida', shortName: 'Sistemas e Apps' },
+  { slug: 'ia-para-empresas', serviceKey: 'ia-para-empresas', title: 'Atendimento por Inteligência Artificial', shortName: 'IA para Empresas' },
+  { slug: 'producao-videos', serviceKey: 'producao-videos', title: 'Produção de Vídeos de Alta Conversão', shortName: 'Vídeos Comerciais' },
+  { slug: 'hospedagem', serviceKey: 'hospedagem', title: 'Hospedagem e Manutenção Profissional', shortName: 'Hospedagem Premium' },
+  { slug: 'suporte-web', serviceKey: 'suporte-web', title: 'Suporte Técnico e Atualizações', shortName: 'Suporte Técnico' },
 
   // 2. Combinações Especiais de Nichos (Conforme especificado no Briefing)
   { slug: 'criacao-sites-advogados', serviceKey: 'criacao-sites', nicheKey: 'advogados', title: 'Criação de Sites para Advogados', shortName: 'Site para Advogados' },
-  { slug: 'ecommerce-moda', serviceKey: 'ecommerce', nicheKey: 'moda', title: 'E-commerce de Moda', shortName: 'Lojas Virtuais de Moda' },
-  { slug: 'site-para-clinicas', serviceKey: 'criacao-sites', nicheKey: 'clinicas', title: 'Site para Clínicas de Saúde', shortName: 'Site para Clínicas' },
-  { slug: 'marketing-digital-restaurantes', serviceKey: 'marketing-digital', nicheKey: 'restaurantes', title: 'Marketing Digital para Restaurantes', shortName: 'Marketing para Restaurantes' },
+  { slug: 'ecommerce-moda', serviceKey: 'ecommerce', nicheKey: 'moda', title: 'Lojas Virtuais e E-commerce de Moda', shortName: 'E-commerce de Moda' },
+  { slug: 'site-para-clinicas', serviceKey: 'criacao-sites', nicheKey: 'clinicas', title: 'Site Profissional para Clínicas e Consultórios', shortName: 'Site para Clínicas' },
+  { slug: 'marketing-digital-restaurantes', serviceKey: 'marketing-digital', nicheKey: 'restaurantes', title: 'Atração de Clientes para Restaurantes', shortName: 'Marketing para Restaurantes' },
   
   // 3. Cruzamentos adicionais altamente estratégicos para captar mais tráfego qualificado
-  { slug: 'seo-imobiliarias', serviceKey: 'seo', nicheKey: 'imobiliarias', title: 'SEO e Otimização para Imobiliárias', shortName: 'SEO para Imobiliárias' },
-  { slug: 'landing-pages-medicos', serviceKey: 'landing-pages', nicheKey: 'medicos', title: 'Landing Pages de Alta Conversão para Médicos', shortName: 'Landing Pages para Médicos' },
+  { slug: 'seo-imobiliarias', serviceKey: 'seo', nicheKey: 'imobiliarias', title: 'Aparecer em Primeiro no Google para Imobiliárias', shortName: '1º Lugar no Google' },
+  { slug: 'landing-pages-medicos', serviceKey: 'landing-pages', nicheKey: 'medicos', title: 'Páginas de Agendamento Rápido para Médicos', shortName: 'Páginas para Médicos' },
   { slug: 'criacao-sites-contabilidade', serviceKey: 'criacao-sites', nicheKey: 'contabilidade', title: 'Criação de Sites para Escritórios de Contabilidade', shortName: 'Site para Contabilidade' },
-  { slug: 'marketing-digital-agronegocio', serviceKey: 'marketing-digital', nicheKey: 'agronegocio', title: 'Marketing Digital para Empresas de Agronegócio', shortName: 'Marketing para Agronegócio' },
-  { slug: 'seo-academias', serviceKey: 'seo', nicheKey: 'academias', title: 'SEO e Google Maps para Academias e Studios', shortName: 'SEO para Academias' },
-  { slug: 'criacao-sites-construcao', serviceKey: 'criacao-sites', nicheKey: 'construcao', title: 'Criação de Sites para Construtoras e Engenheiros', shortName: 'Site para Construtoras' },
-  { slug: 'landing-pages-estetica', serviceKey: 'landing-pages', nicheKey: 'estetica', title: 'Landing Pages de Captura para Clínicas de Estética', shortName: 'Landing Pages para Estética' },
-  { slug: 'criacao-sites-empresas-industriais', serviceKey: 'criacao-sites', nicheKey: 'empresas-industriais', title: 'Criação de Sites para Indústrias B2B', shortName: 'Site para Indústrias' },
-  { slug: 'marketing-digital-transportadoras', serviceKey: 'marketing-digital', nicheKey: 'transportadoras', title: 'Marketing Digital e Tráfego para Transportadoras', shortName: 'Marketing para Transportadoras' },
-  { slug: 'criacao-sites-concessionarias', serviceKey: 'criacao-sites', nicheKey: 'concessionarias', title: 'Criação de Sites e Portais para Concessionárias', shortName: 'Site para Concessionárias' }
+  { slug: 'marketing-digital-agronegocio', serviceKey: 'marketing-digital', nicheKey: 'agronegocio', title: 'Atração de Clientes para Empresas de Agronegócio', shortName: 'Marketing para Agronegócio' },
+  { slug: 'seo-academias', serviceKey: 'seo', nicheKey: 'academias', title: 'Primeiro Lugar no Google para Academias e Studios', shortName: 'SEO para Academias' },
+  { slug: 'criacao-sites-construcao', serviceKey: 'criacao-sites', nicheKey: 'construcao', title: 'Criação de Sites para Construtoras e Empreiteiras', shortName: 'Site para Construtoras' },
+  { slug: 'landing-pages-estetica', serviceKey: 'landing-pages', nicheKey: 'estetica', title: 'Páginas de Agendamento para Clínicas de Estética', shortName: 'Páginas para Estética' },
+  { slug: 'criacao-sites-empresas-industriais', serviceKey: 'criacao-sites', nicheKey: 'empresas-industriais', title: 'Criação de Sites para Indústrias e Fábricas B2B', shortName: 'Site para Indústrias' },
+  { slug: 'marketing-digital-transportadoras', serviceKey: 'marketing-digital', nicheKey: 'transportadoras', title: 'Atração de Clientes para Transportadoras e Cargas', shortName: 'Marketing para Transportadoras' },
+  { slug: 'criacao-sites-concessionarias', serviceKey: 'criacao-sites', nicheKey: 'concessionarias', title: 'Criação de Sites para Lojas de Carros e Concessionárias', shortName: 'Site para Concessionárias' }
 ];
 
 // Spintax Helper - Escolhe de forma determinística uma variação de texto baseada no comprimento do slug+cidade
@@ -245,104 +245,104 @@ export function generateSEOContent(city: City, combo: Combination): SEOPageData 
   const cityPhrase = city.phrase;
   const serviceName = srv.name;
 
-  // 1. Títulos e Metas Únicos
+  // Títulos e Metas Únicos
   let title = combo.title;
   let shortName = combo.shortName;
   if (nich) {
     title = `${srv.name} ${nich.article} ${nich.name}`;
   }
 
-  const metaTitle = `${title} em ${cityName} | Miranda Tech`;
+  const metaTitle = `${title} em ${cityName} | Colocamos Você em 1º no Google`;
   
   const metaDescription = nich
-    ? `Precisa de ${srv.name.toLowerCase()} ${nich.article} seu negócio de ${nich.name.toLowerCase()} em ${cityName}? Fale com Guilherme Miranda, especialista há 26 anos. Solicite orçamento!`
-    : `Desenvolvimento profissional de ${srv.name.toLowerCase()} em ${cityName} e região. Alta velocidade, SEO integrado e foco total em conversão. Fale com Guilherme Miranda!`;
+    ? `Quer atrair mais clientes para seu negócio de ${nich.name.toLowerCase()} em ${cityName}? Colocamos você em 1º no Google, ChatGPT e Gemini. Projetos liderados por Guilherme Miranda.`
+    : `Criação de ${serviceName.toLowerCase()} em ${cityName} e região. Seu site abrindo na hora no celular, atraindo leads no WhatsApp e faturando mais. Fale com Guilherme Miranda!`;
 
-  // 2. Introdução Dinâmica baseada em Spintax
+  // Introdução Dinâmica baseada em Spintax simplificado (Leigo)
   const introVariants = [
-    `A busca por presença digital forte em **${cityName}** tem se tornado um fator decisivo para o crescimento empresarial. Sendo **${cityPhrase}**, a concorrência exige que empresas locais de destaque invistam em tecnologia sofisticada. É nesse cenário que o serviço de **${title}** se destaca como o pilar estratégico ideal para negócios que buscam autoridade e vendas orgânicas na internet.`,
+    `Se você tem um negócio em **${cityName}** e quer crescer, a verdade é simples: quando as pessoas precisam do seu serviço, elas pesquisam no Google, no ChatGPT ou no Gemini. Sendo **${cityPhrase}**, a concorrência local é forte. Contar com uma estrutura profissional de **${title}** desenvolvida pela nossa equipe é a forma mais rápida e barata de fazer o seu telefone tocar todos os dias com novos clientes querendo fechar negócio com você.`,
     
-    `No atual ambiente econômico de **${cityName}** (${cityRegion}), estabelecer um posicionamento digital premium é indispensável. Para empresas que desejam atrair novos clientes diariamente de forma recorrente, contar com uma infraestrutura profissional de **${title}** é a solução definitiva. Guilherme Miranda, com mais de 26 anos de experiência, lidera a criação de projetos corporativos sob medida para essa região.`,
+    `A sua empresa em **${cityName}** está sendo encontrada na internet por quem quer comprar? Para marcas de destaque na **${cityRegion}**, a visibilidade é tudo. Guilherme Miranda, desenvolvedor sênior com 26 anos de experiência e mais de 1.200 projetos entregues de sucesso, comanda a equipe técnica da Miranda Tech para colocar a sua estrutura de **${title}** em primeiro lugar nas pesquisas locais e IAs, atraindo mais faturamento.`,
     
-    `Empresas de sucesso em **${cityName}** compreendem que a transformação digital não é mais opcional, mas a engrenagem principal de escala. Ao contratar serviços de **${title}**, você garante que seu negócio na **${cityRegion}** esteja na vitrine mais importante do mundo: a primeira página do Google, gerando leads qualificados no WhatsApp 24 horas por dia.`
+    `Muitas empresas em **${cityName}** perdem vendas todos os dias simplesmente porque os seus sites são antigos, travam no celular ou não aparecem quando o cliente pesquisa. Com o nosso serviço de **${title}**, você ganha um site extremamente rápido, moderno e estruturado especificamente para converter visitantes curiosos em contatos quentes no seu WhatsApp comercial, garantindo presença dominante em toda a **${cityRegion}**.`
   ];
   
   const introduction = selectVariant(city.slug, combo.slug, introVariants);
 
-  // 3. Conteúdo Principal dinâmico citando dores do nicho
+  // Conteúdo Principal dinâmico citando dores do nicho
   let mainContent = '';
   if (nich) {
     const nichDores = [
-      `Para profissionais e empresas de **${nich.name.toLowerCase()}** localizados em **${cityName}**, os métodos tradicionais de atração de clientes já não trazem a mesma eficiência do passado. Hoje, clientes que precisam de um ${nich.singularName.toLowerCase()} qualificado recorrem imediatamente ao buscador do Google. Um projeto de **${title}** focado nas necessidades específicas deste setor garante que sua reputação técnica seja refletida em uma página veloz, segura e altamente persuasiva, respeitando as normas éticas da profissão e se destacando na **${cityRegion}**.`,
+      `Para quem tem uma empresa de **${nich.name.toLowerCase()}** em **${cityName}**, os velhos jeitos de conseguir clientes já não funcionam bem. Hoje, quem precisa de um ${nich.singularName.toLowerCase()} vai direto ao Google e às Inteligências Artificiais de busca. Nosso projeto de **${title}** é feito especificamente para as necessidades de sua área, passando extrema credibilidade, carregando instantaneamente na tela do celular do cliente e direcionando o contato diretamente para o WhatsApp de atendimento do seu escritório ou consultório na **${cityRegion}**.`,
       
-      `O mercado de **${nich.name.toLowerCase()}** em **${cityName}** é altamente competitivo. Para se consolidar e captar contatos de alto ticket, sua empresa necessita de uma plataforma digital premium. Com a assessoria técnica de Guilherme Miranda, desenvolvemos soluções exclusivas de **${title}** estruturadas desde o primeiro minuto para carregar em menos de 1 segundo, atrair tráfego local qualificado através de SEO avançado e convencer o visitante através de depoimentos estratégicos e CTAs diretos para o WhatsApp.`,
+      `A concorrência em **${nich.name.toLowerCase()}** na cidade de **${cityName}** cresce a cada dia. Para se destacar e atrair os melhores clientes da região, você precisa de um posicionamento de alto nível. Guilherme Miranda e a equipe técnica da Miranda Tech criam soluções de **${title}** focadas 100% em conversão e facilidade. Criamos um canal limpo e confiável, livre de travamentos ou lentidões, garantindo que quem procura pelos seus serviços na internet feche negócio com você em vez de ir para o seu concorrente.`,
       
-      `Desenvolver um canal digital estruturado de **${title}** é a forma mais barata e lucrativa de escalar as operações de sua empresa de **${nich.name.toLowerCase()}** em **${cityName}**. Chega de depender de plataformas de terceiros ou agências amadoras de informática. Entregamos um sistema estático completo, livre de manutenções complexas ou lentidões desnecessárias, criando uma máquina automatizada de agendamentos e vendas para sua marca.`
+      `Ter uma plataforma profissional de **${title}** é o melhor investimento que você pode fazer pelo seu negócio de **${nich.name.toLowerCase()}** em **${cityName}**. Chega de depender de indicações instáveis ou de gastar dinheiro com agências amadoras. Entregamos um sistema rápido, moderno e muito simples de gerenciar, onde a sua marca ganha a autoridade de quem tem mais de 26 anos de mercado coordenando a entrega de cada detalhe.`
     ];
     mainContent = selectVariant(city.slug, combo.slug, nichDores);
   } else {
     const srvDores = [
-      `Investir em **${serviceName}** com foco na cidade de **${cityName}** é o método cientificamente mais eficaz para expandir sua operação sem inflar excessivamente o custo de marketing. Nossas soluções estáticas em Astro eliminam a complexidade de bancos de dados pesados e sistemas vulneráveis, garantindo que o seu negócio na **${cityRegion}** se posicione no topo dos resultados de pesquisa com nota máxima em Core Web Vitals e Lighthouse.`,
+      `Investir em **${serviceName}** na cidade de **${cityName}** é a forma ideal de aumentar os seus lucros locais sem desperdiçar verba de publicidade. Criamos páginas e sistemas extremamente rápidos que funcionam sem lentidões desnecessárias, permitindo que a sua marca na **${cityRegion}** conquiste a confiança dos clientes e apareça em 1º nas buscas diárias feitas pelo celular ou computador.`,
       
-      `A agilidade e sofisticação técnica são os principais diferenciais dos nossos projetos de **${serviceName}** para empresas em **${cityName}**. Cada detalhe da arquitetura estática é meticulosamente construído para entregar usabilidade perfeita em celulares, integração instantânea com WhatsApp, carregamento ultraveloz e metadados SEO robustos para que sua marca seja encontrada por clientes prontos para comprar seus produtos ou serviços.`,
+      `Nossos projetos de **${serviceName}** para empresas em **${cityName}** se diferenciam por um ponto central: eles são feitos para vender de forma simples. Cada imagem, texto e botão é planejado para que quem acesse a página entenda o seu valor de forma direta, enviando uma mensagem no WhatsApp sem precisar preencher formulários compridos ou lidar com sistemas complicados.`,
       
-      `Se sua empresa em **${cityName}** necessita de suporte técnico avançado e inovação para crescer, Guilherme Miranda oferece uma bagagem única de 26 anos de TI aplicada a negócios. Unimos o melhor da tecnologia moderna à visão comercial estratégica para entregar projetos de **${serviceName}** que geram resultados concretos e retornos financeiros reais de forma previsível.`
+      `Se a sua marca em **${cityName}** precisa de mais vendas e de uma assessoria séria para crescer, Guilherme Miranda oferece a segurança de 26 anos de estrada prática e mais de 1.200 softwares comercializados. Unimos o melhor do design moderno, anúncios focados e automações simples para criar soluções eficientes que trazem retorno financeiro claro para o seu caixa.`
     ];
     mainContent = selectVariant(city.slug, combo.slug, srvDores);
   }
 
-  // 4. Benefícios do serviço aplicados localmente
+  // Benefícios traduzidos para leigo
   const benefits = nich
     ? [
-        `Design exclusivo totalmente alinhado ao público de ${nich.name.toLowerCase()} em ${cityName}`,
-        `Estrutura ultrarrápida (Lighthouse > 95) para evitar perda de pacientes/clientes no celular`,
-        `Otimização local de SEO focada em buscas regionais na ${cityRegion}`,
-        `Integração direta com WhatsApp comercial para agendamentos imediatos`,
-        `Garantia técnica de 26 anos de experiência liderada por Guilherme Miranda`
+        `Design elegante e moderno personalizado para ${nich.name.toLowerCase()} em ${cityName}`,
+        `Site extremamente rápido que abre na hora no celular do cliente (sem travar)`,
+        `Sua empresa em primeiro lugar no Google e nos chatbots de IA (ChatGPT, Gemini)`,
+        `Botão de WhatsApp visível e configurado para facilitar o contato imediato`,
+        `Garantia técnica direta de quem tem 26 anos de experiência (Guilherme Miranda)`
       ]
     : [
-        `Arquitetura estática em Astro de alta performance sem WordPress`,
-        `Código limpo e otimizado para o Google atingir a primeira página em ${cityName}`,
-        `Hospedagem premium de altíssimo uptime e e-mails corporativos integrados`,
-        `Integrações e automações robustas com WhatsApp e ferramentas de vendas`,
-        `Atendimento e assessoria comercial qualificada com Guilherme Miranda`
+        `Páginas super rápidas que passam extrema confiança e profissionalismo`,
+        `Otimização completa para sua marca aparecer quando clientes pesquisarem em ${cityName}`,
+        `Hospedagem profissional com e-mails comerciais e backup diário inclusos`,
+        `Integração automática com o seu WhatsApp para captura rápida de contatos`,
+        `Equipe robusta da Miranda Tech liderada pessoalmente por Guilherme Miranda`
       ];
 
-  // 5. FAQ dinâmico citando cidade e nicho
+  // FAQ traduzido para leigo
   const faqs = nich
     ? [
         {
           question: `Como funciona o serviço de ${title} em ${cityName}?`,
-          answer: `Nosso serviço desenvolve uma plataforma corporativa exclusiva sob medida para profissionais de ${nich.name.toLowerCase()} em ${cityName}. Criamos um site estático focado em velocidade extrema e conversão direta via WhatsApp, estruturado de acordo com as regras éticas do seu segmento.`
+          answer: `Nossa equipe cria um site profissional de alto nível específico para negócios de ${nich.name.toLowerCase()} em ${cityName}. Focamos na velocidade de carregamento e na facilidade de contato. Colocamos o site em primeiro lugar nas pesquisas do Google e IAs locais para que os clientes da região encontrem você facilmente e mandem mensagem no seu WhatsApp.`
         },
         {
-          question: `Qual o prazo de entrega para projetos de ${shortName} na região?`,
-          answer: `O prazo varia de acordo com a complexidade, mas a média é de 10 a 20 dias úteis. Projetos liderados por Guilherme Miranda contam com processos ágeis, assegurando a entrega de um sistema completo, testado e pronto para capturar leads.`
+          question: `Qual o prazo para colocar meu site de ${shortName} no ar?`,
+          answer: `O prazo médio é de 10 a 20 dias úteis. Nossa equipe desenvolve o projeto completo de forma ágil, testando a velocidade e o funcionamento no celular, entregando uma estrutura pronta para receber clientes comerciais.`
         },
         {
-          question: `Por que as soluções da Miranda Tech são superiores para empresas de ${nich.name.toLowerCase()}?`,
-          answer: `Diferente de templates comuns de WordPress, nós utilizamos Astro e arquitetura estática pura. Isso significa que seu site em ${cityName} será imune a vírus de segurança, extremamente veloz em redes móveis e carregará instantaneamente, o que dobra a taxa de contatos comerciais.`
+          question: `Por que escolher a Miranda Tech liderada por Guilherme Miranda?`,
+          answer: `Diferente de profissionais amadores ou agências genéricas que entregam sites lentos, nós construímos plataformas limpas e seguras. Com a liderança técnica de Guilherme Miranda (26 anos de TI e 1.200+ projetos entregues), unimos a força de uma equipe de especialistas à segurança de um atendimento sênior personalizado.`
         }
       ]
     : [
         {
-          question: `Como o serviço de ${serviceName} vai ajudar minha empresa em ${cityName}?`,
-          answer: `Ao implementar soluções de ${serviceName.toLowerCase()} de alta qualidade, sua marca ganha autoridade técnica na ${cityRegion}, melhora o ranqueamento orgânico no Google e oferece uma experiência de usuário rápida e intuitiva, convertendo mais visitantes locais em leads de vendas.`
+          question: `Como o serviço de ${serviceName} vai trazer mais clientes em ${cityName}?`,
+          answer: `Ao criar um canal rápido, limpo e com posicionamento no topo do Google, ChatGPT e Gemini, as pessoas da região de ${cityName} que já estão procurando pelo que você oferece vão encontrar a sua marca primeiro. A velocidade extrema evita que elas desistam e fechem com o seu concorrente.`
         },
         {
-          question: `Os projetos desenvolvidos contam com suporte pós-lançamento?`,
-          answer: `Sim, absolutamente. Oferecemos pacotes integrados de suporte e manutenção web para garantir estabilidade contínua, backups sistemáticos e monitoramento de performance de todas as plataformas operando na região de ${cityName}.`
+          question: `O site de minha empresa vai funcionar bem no celular?`,
+          answer: `Sim, 100%! Todos os nossos projetos são desenhados focando no acesso pelo celular, já que mais de 85% dos contatos e vendas locais de serviços de TI e corporativos hoje são feitos por dispositivos móveis.`
         },
         {
-          question: `Guilherme Miranda atende empresas de grande porte em ${cityName}?`,
-          answer: `Sim! Com 26 anos de bagagem em TI e mais de 1200 softwares vendidos, Guilherme Miranda possui vasta experiência em consultoria tecnológica para pequenas, médias e grandes multinacionais, entregando robustez e arquiteturas de alta resiliência.`
+          question: `A empresa atende pequenas e grandes empresas em ${cityName}?`,
+          answer: `Sim! Sob o comando de Guilherme Miranda, que tem 26 anos de experiência comercial trabalhando com comércios locais e multinacionais, nossa equipe está preparada para entregar a mesma robustez técnica e qualidade tanto para pequenos consultórios quanto para grandes operações industriais.`
         }
       ];
 
-  // 6. Chamada de Conversão Contextualizada
+  // Chamada de Conversão Contextualizada
   const cta = nich
-    ? `Olá Guilherme Miranda, gostaria de solicitar um orçamento para ${title} em ${cityName}. Vi a simulação na página de ${nich.name.toLowerCase()} e quero expandir nosso negócio digital.`
-    : `Olá Guilherme Miranda, gostaria de mais informações sobre ${serviceName} em ${cityName}. Fiz uma simulação em seu canal oficial e gostaria de falar com um especialista.`;
+    ? `Olá Guilherme Miranda, simulei a criação de ${title} em ${cityName} no site. Gostaria de solicitar um orçamento para o meu negócio de ${nich.name.toLowerCase()}.`
+    : `Olá Guilherme Miranda, vi a página de ${serviceName} em ${cityName}. Gostaria de mais informações e de um orçamento grátis para minha empresa.`;
 
   return {
     slug: combo.slug,
